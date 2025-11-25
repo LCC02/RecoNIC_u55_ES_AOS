@@ -1,0 +1,26 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1",
+    "file": "cl_box.cpp",
+    "fileloc": 40,
+    "instructions": 4,
+    "name": "cl_box",
+    "total_instructions": 74
+  },
+  "1": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "cl_box.cpp",
+    "fileloc": 12,
+    "instructions": 46,
+    "loads": {
+      "L": 7
+    },
+    "name": "parse_ctl_cmd",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 70
+  }
+}

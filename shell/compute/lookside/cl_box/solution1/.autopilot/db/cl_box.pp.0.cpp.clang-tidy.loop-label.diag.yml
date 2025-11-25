@@ -1,0 +1,13 @@
+---
+MainSourceFile:  /work/amotta/RecoNIC/shell/compute/lookside/cl_box/solution1/.autopilot/db/cl_box.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_22_1:  '
+    FileOffset:      22
+    FilePath:        cl_box.cpp
+    Replacements:    
+      - FilePath:        /work/amotta/RecoNIC/shell/compute/lookside/cl_box/solution1/.autopilot/db/cl_box.pp.0.cpp
+        Offset:          36047
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_22_1: '
+...

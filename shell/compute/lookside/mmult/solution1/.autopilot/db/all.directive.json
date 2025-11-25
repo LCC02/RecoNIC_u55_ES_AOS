@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "mmult",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "mmult"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/work/amotta/RecoNIC/shell/compute/lookside/mmult.tcl",
+    "sourceLine": 16,
+    "success": true
+  }
+]

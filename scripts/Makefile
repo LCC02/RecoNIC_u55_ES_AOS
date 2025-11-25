@@ -16,6 +16,7 @@ SHELL_DIR    := $(ROOT_DIR)/shell
 SCRIPT_DIR   := $(ROOT_DIR)/scripts
 BUILD_DIR    := $(ROOT_DIR)/build
 RN_BUILD_DIR := $(BUILD_DIR)/reconic
+BOARD_REPO   := 
 
 IMPL       ?= 1
 
@@ -23,9 +24,9 @@ OVERWRITE  ?= 1
 
 GEN_HLS    ?= 0
 
-BOARD      ?= au250
+BOARD      ?= au55c
 
-PYTHON_EXE ?= python
+PYTHON_EXE ?= python3
 
 # Check Vivado version
 VIVADO_VERSION := $(shell vivado -version | grep ^Vivado |  sed -n 's/.*\(v[0-9]*.[0-9]*\).*/\1/p')
@@ -59,9 +60,9 @@ SMARTNIC_SCRIPT_DIR := $(ROOT_DIR)/base_nics/open-nic-shell/script
 
 build_nic: build_reconic
 ifeq ($(IMPL), 1)
-	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 1 -overwrite $(OVERWRITE) -board_repo $(BOARD_REPO) -board $(BOARD)
+	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 1 -overwrite $(OVERWRITE) -board $(BOARD)
 else
-	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 0 -overwrite $(OVERWRITE) -board_repo $(BOARD_REPO) -board $(BOARD)
+	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 0 -overwrite $(OVERWRITE) -board $(BOARD)
 endif
 
 build_reconic: clean_build hls_build

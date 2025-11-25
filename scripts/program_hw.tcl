@@ -14,14 +14,14 @@
 set root_dir [file normalize ..]
 set script_dir ${root_dir}/script
 set nic_dir ${root_dir}/base_nics/open-nic-shell
-set default_bitstream ${nic_dir}/build/au250/open_nic_shell/open_nic_shell.runs/impl_1/open_nic_shell.bit
-set default_config_file ${nic_dir}/build/au250/open_nic_shell/open_nic_shell.runs/impl_1/open_nic_shell.ltx
+set default_bitstream ${nic_dir}/build/au55c/open_nic_shell/open_nic_shell.runs/impl_1/open_nic_shell.bit
+set default_config_file ${nic_dir}/build/au55c/open_nic_shell/open_nic_shell.runs/impl_1/open_nic_shell.ltx
 
 puts "root_dir   : $root_dir"
 puts "script_dir : $script_dir"
 puts "nic_dir    : $nic_dir"
 
-set hw_device_id "xcu250_0"
+set hw_device_id "xcu280_u55c_0"
 
 proc getFileSuffix {filename} {
   set suffix [file extension $filename]

@@ -1,0 +1,18 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/work/amotta/RecoNIC/shell/compute/lookside/cl_box.tcl:15:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="cl_box" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=cl_box" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="cl_box.cpp:46:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cl_box" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=ap_ctrl_hs port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="cl_box.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cl_box" ARG_PragmaIsValid="1" ARG_PragmaOptions="recursive" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-415" msg_severity="INFO" msg_loc="cl_box.cpp:48:9" msg_body="Performing recursive inline in function 'cl_box'">
+        <args Callee="cl_box"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="cl_box.cpp:54:5" msg_body="Inlining function 'parse_ctl_cmd(hls::stream&lt;unsigned int, 0&gt;&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;) (.1)' into 'cl_box(hls::stream&lt;unsigned int, 0&gt;&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;)'">
+        <args Callee="parse_ctl_cmd(hls::stream&lt;unsigned int, 0&gt;&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;) (.1)" Callee-DebugLoc="File cl_box.cpp Line 12 Column 0" Caller="cl_box(hls::stream&lt;unsigned int, 0&gt;&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;, int&amp;)" Caller-DebugLoc="File cl_box.cpp Line 40 Column 0"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

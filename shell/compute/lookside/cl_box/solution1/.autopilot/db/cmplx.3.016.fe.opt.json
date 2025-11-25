@@ -1,0 +1,18 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "cl_box.cpp",
+    "fileloc": 40,
+    "instructions": 71,
+    "loads": {
+      "L": 7
+    },
+    "name": "cl_box",
+    "stores": {
+      "L": 2,
+      "T": 7
+    },
+    "total_instructions": 71
+  }
+}

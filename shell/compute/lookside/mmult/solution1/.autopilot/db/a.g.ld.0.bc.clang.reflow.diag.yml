@@ -1,0 +1,717 @@
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: mmult.cpp, Line: 154, Column: 9 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Loop '''
+  - LoopName:        systolic2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: mmult.cpp, Line: 156, Column: 13 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Loop '''
+  - LoopName:        systolic3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic2
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:154:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        systolic3
+  - String:          ''' ('
+  - LoopLoc:         'mmult.cpp:156:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mmult
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_mmult_ir
+Args:            
+  - Callee:          'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_mmult_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: mmult.cpp, Line: 92, Column: 9 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          localA
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: mmult.cpp, Line: 95, Column: 6 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          localB
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '2'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: mmult.cpp, Line: 98, Column: 6 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          localC
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '2'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: mmult.cpp, Line: 104, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        aseq
+  - ArrayName:       a
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:104:5'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+  - OrigDirection:   read
+  - OrigID:          load-store-loop9.load.51
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: mmult.cpp, Line: 108, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        bseq
+  - ArrayName:       b
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:108:5'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+  - OrigDirection:   read
+  - OrigID:          load-store-loop6.load.51
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: mmult.cpp, Line: 176, Column: 2 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of length '
+  - Length:          '256'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        cseq
+  - ArrayName:       c
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:176:2'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+  - OrigDirection:   write
+  - OrigID:          load-store-loop.store.22
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: mmult.cpp, Line: 176, Column: 2 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       write
+  - String:          ' of '
+  - OrigLength:      '256'
+  - String:          ' x '
+  - OrigWords:       '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '16'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: mmult.cpp, Line: 176, Column: 2 }
+  - OrigDirection:   write
+  - OrigID:          cseq
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq
+  - ArrayName:       c
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:176:2'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: mmult.cpp, Line: 108, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - OrigLength:      '256'
+  - String:          ' x '
+  - OrigWords:       '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '16'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: mmult.cpp, Line: 108, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          bseq
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq2386
+  - ArrayName:       b
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:108:5'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-widen
+Name:            BurstWidened
+DebugLoc:        { File: mmult.cpp, Line: 104, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - OrigLength:      '256'
+  - String:          ' x '
+  - OrigWords:       '32'
+  - String:          'bit words has been widened by '
+  - Factor:          '16'
+  - String:          ': '
+  - Length:          '16'
+  - String:          ' x '
+  - Words:           '512'
+  - String:          bit words
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      call
+    DebugLoc:        { File: mmult.cpp, Line: 104, Column: 5 }
+  - OrigDirection:   read
+  - OrigID:          aseq
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        wseq2388
+  - ArrayName:       a
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - LoopName:        anonymous
+  - String:          ' '
+  - LoopLoc:         'mmult.cpp:104:5'
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         'mmult.cpp:104:5'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         'mmult.cpp:108:5'
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         'mmult.cpp:176:2'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: mmult.cpp, Line: 104, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: mmult.cpp, Line: 104, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      systolic
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: mmult.cpp, Line: 108, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq1
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: mmult.cpp, Line: 108, Column: 5 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      systolic
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: mmult.cpp, Line: 176, Column: 2 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq2
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      systolic
+  - String:          ' '
+  - Function:        'mmult(hls::stream<int, 0>&, int const*, int const*, int*, int, int, int, int)'
+    DebugLoc:        { File: mmult.cpp, Line: 61, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: mmult.cpp, Line: 176, Column: 2 }
+Function:        _Z5mmultRN3hls6streamIiLi0EEEPKiS4_Piiiii
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       writes
+  - String:          ' of length '
+  - Length:          '16'
+  - String:          ' and bit width '
+  - Width:           '512'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      systolic
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...

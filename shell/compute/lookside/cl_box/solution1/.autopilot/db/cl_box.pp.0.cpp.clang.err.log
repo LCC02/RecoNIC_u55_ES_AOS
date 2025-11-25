@@ -1,0 +1,10 @@
+/work/amotta/RecoNIC/shell/compute/lookside/cl_box.tcl:15:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=cl_box_XLX_SEP_ PragmaOptions=name=cl_box_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLSDIRECTIVE TOP name=cl_box
+        ^
+cl_box.cpp:46:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cl_box_XLX_SEP_ PragmaOptions=mode=ap_ctrl_hs port=return_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS interface mode=ap_ctrl_hs port=return
+        ^
+cl_box.cpp:48:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cl_box_XLX_SEP_ PragmaOptions=recursive_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS inline recursive
+        ^
+3 warnings generated.

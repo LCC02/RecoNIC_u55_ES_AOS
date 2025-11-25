@@ -1,0 +1,22 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="mmult"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <targetInfo>
+        <TargetInfo value="xcvu9p:-flga2104:-2L-e"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" period="4" default="false"/>
+    </clockList>
+    <config>
+        <config_interface m_axi_alignment_byte_size="64" m_axi_max_widen_bitwidth="512"/>
+    </config>
+</AutoPilot:solution>
+

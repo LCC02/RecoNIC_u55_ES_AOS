@@ -1,0 +1,143 @@
+
+
+================================================================
+== Synthesis Summary Report of 'cl_box'
+================================================================
++ General Information: 
+    * Date:           Fri Nov 21 17:57:05 2025
+    * Version:        2024.2 (Build 5238294 on Nov  8 2024)
+    * Project:        cl_box
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu11p-flga2577-1-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |               Modules              | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
+    |               & Loops              | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ cl_box                            |     -|  0.17|        -|       -|         -|        -|     -|        no|     -|   -|  154 (~0%)|  395 (~0%)|    -|
+    | + cl_box_Pipeline_1                |     -|  1.01|        7|  28.000|         -|        7|     -|        no|     -|   -|    5 (~0%)|   47 (~0%)|    -|
+    |  o Loop 1                          |     -|  2.92|        5|  20.000|         1|        1|     5|       yes|     -|   -|          -|          -|    -|
+    | + cl_box_Pipeline_VITIS_LOOP_22_1  |     -|  0.73|        -|       -|         -|        -|     -|        no|     -|   -|    9 (~0%)|   99 (~0%)|    -|
+    |  o VITIS_LOOP_22_1                 |     -|  2.92|        -|       -|         2|        1|     -|       yes|     -|   -|          -|          -|    -|
+    +------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_FIFO
++----------------+-----------+------------+
+| Interface      | Direction | Data Width |
++----------------+-----------+------------+
+| ctl_cmd_stream | in        | 32         |
++----------------+-----------+------------+
+
+* Other Ports
++------------+--------+-----------+----------+
+| Port       | Mode   | Direction | Bitwidth |
++------------+--------+-----------+----------+
+| a_baseaddr | ap_vld | out       | 32       |
+| a_col      | ap_vld | out       | 32       |
+| a_row      | ap_vld | out       | 32       |
+| b_baseaddr | ap_vld | out       | 32       |
+| b_col      | ap_vld | out       | 32       |
+| c_baseaddr | ap_vld | out       | 32       |
+| work_id    | ap_vld | out       | 32       |
++------------+--------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------------+-----------+--------------------------+
+| Argument       | Direction | Datatype                 |
++----------------+-----------+--------------------------+
+| ctl_cmd_stream | in        | stream<unsigned int, 0>& |
+| a_baseaddr     | out       | int&                     |
+| b_baseaddr     | out       | int&                     |
+| c_baseaddr     | out       | int&                     |
+| a_row          | out       | int&                     |
+| a_col          | out       | int&                     |
+| b_col          | out       | int&                     |
+| work_id        | out       | int&                     |
++----------------+-----------+--------------------------+
+
+* SW-to-HW Mapping
++----------------+-------------------+-----------+
+| Argument       | HW Interface      | HW Type   |
++----------------+-------------------+-----------+
+| ctl_cmd_stream | ctl_cmd_stream    | interface |
+| a_baseaddr     | a_baseaddr        | port      |
+| a_baseaddr     | a_baseaddr_ap_vld | port      |
+| b_baseaddr     | b_baseaddr        | port      |
+| b_baseaddr     | b_baseaddr_ap_vld | port      |
+| c_baseaddr     | c_baseaddr        | port      |
+| c_baseaddr     | c_baseaddr_ap_vld | port      |
+| a_row          | a_row             | port      |
+| a_row          | a_row_ap_vld      | port      |
+| a_col          | a_col             | port      |
+| a_col          | a_col_ap_vld      | port      |
+| b_col          | b_col             | port      |
+| b_col          | b_col_ap_vld      | port      |
+| work_id        | work_id           | port      |
+| work_id        | work_id_ap_vld    | port      |
++----------------+-------------------+-----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------------+-----+--------+-----------+-------+--------+---------+
+| Name                               | DSP | Pragma | Variable  | Op    | Impl   | Latency |
++------------------------------------+-----+--------+-----------+-------+--------+---------+
+| + cl_box                           | 0   |        |           |       |        |         |
+|   sub_i_fu_199_p2                  |     |        | sub_i     | add   | fabric | 0       |
+|   add_ln22_fu_208_p2               |     |        | add_ln22  | add   | fabric | 0       |
+|  + cl_box_Pipeline_1               | 0   |        |           |       |        |         |
+|    exitcond2_fu_50_p2              |     |        | exitcond2 | seteq | auto   | 0       |
+|    empty_10_fu_56_p2               |     |        | empty_10  | add   | fabric | 0       |
+|  + cl_box_Pipeline_VITIS_LOOP_22_1 | 0   |        |           |       |        |         |
+|    icmp_ln22_fu_82_p2              |     |        | icmp_ln22 | seteq | auto   | 0       |
+|    add_ln24_fu_88_p2               |     |        | add_ln24  | add   | fabric | 0       |
++------------------------------------+-----+--------+-----------+-------+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++---------------+--------------+------+------+------+--------+-----------+------+---------+------------------+
+| Name          | Usage        | Type | BRAM | URAM | Pragma | Variable  | Impl | Latency | Bitwidth, Depth, |
+|               |              |      |      |      |        |           |      |         | Banks            |
++---------------+--------------+------+------+------+--------+-----------+------+---------+------------------+
+| + cl_box      |              |      | 0    | 0    |        |           |      |         |                  |
+|   cmd_array_U | ram_2p array |      |      |      |        | cmd_array | auto | 1       | 32, 5, 1         |
++---------------+--------------+------+------+------+--------+-----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+-----------------------------+---------------------------------+
+| Type      | Options                     | Location                        |
++-----------+-----------------------------+---------------------------------+
+| interface | mode=ap_ctrl_hs port=return | cl_box.cpp:46 in cl_box, return |
+| inline    | recursive                   | cl_box.cpp:48 in cl_box         |
++-----------+-----------------------------+---------------------------------+
+
+

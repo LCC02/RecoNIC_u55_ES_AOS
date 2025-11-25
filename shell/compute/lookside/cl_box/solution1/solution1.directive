@@ -1,0 +1,10 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="cl_box" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="cl_box"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

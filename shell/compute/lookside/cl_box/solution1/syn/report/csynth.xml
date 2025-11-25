@@ -1,0 +1,796 @@
+<profile>
+    <ReportVersion>
+        <Version>2024.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcvu11p-flga2577-1-e</Part>
+        <TopModelName>cl_box</TopModelName>
+        <TargetClockPeriod>4.00</TargetClockPeriod>
+        <ClockUncertainty>1.08</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>2.749</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>18</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>72.000 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <Interval-min>19</Interval-min>
+            <Interval-max>undef</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfViolations>
+            <IssueType>-</IssueType>
+            <ViolationType>-</ViolationType>
+            <SourceLocation>cl_box.cpp:40</SourceLocation>
+        </SummaryOfViolations>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>154</FF>
+            <LUT>395</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>4032</BRAM_18K>
+            <DSP>9216</DSP>
+            <FF>2592000</FF>
+            <LUT>1296000</LUT>
+            <URAM>960</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>cl_box</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ctl_cmd_stream_dout</name>
+            <Object>ctl_cmd_stream</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ctl_cmd_stream_empty_n</name>
+            <Object>ctl_cmd_stream</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ctl_cmd_stream_read</name>
+            <Object>ctl_cmd_stream</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_baseaddr</name>
+            <Object>a_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_baseaddr_ap_vld</name>
+            <Object>a_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_baseaddr</name>
+            <Object>b_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_baseaddr_ap_vld</name>
+            <Object>b_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_baseaddr</name>
+            <Object>c_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_baseaddr_ap_vld</name>
+            <Object>c_baseaddr</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_row</name>
+            <Object>a_row</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_row_ap_vld</name>
+            <Object>a_row</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_col</name>
+            <Object>a_col</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_col_ap_vld</name>
+            <Object>a_col</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_col</name>
+            <Object>b_col</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_col_ap_vld</name>
+            <Object>b_col</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>work_id</name>
+            <Object>work_id</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>work_id_ap_vld</name>
+            <Object>work_id</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>cl_box</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_cl_box_Pipeline_1_fu_175</InstName>
+                    <ModuleName>cl_box_Pipeline_1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>175</ID>
+                    <BindInstances>exitcond2_fu_50_p2 empty_10_fu_56_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_cl_box_Pipeline_VITIS_LOOP_22_1_fu_181</InstName>
+                    <ModuleName>cl_box_Pipeline_VITIS_LOOP_22_1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>181</ID>
+                    <BindInstances>icmp_ln22_fu_82_p2 add_ln24_fu_88_p2</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>cmd_array_U sub_i_fu_199_p2 add_ln22_fu_208_p2</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>cl_box_Pipeline_1</Name>
+            <Loops>
+                <Loop1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>1.905</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>7</Best-caseLatency>
+                    <Average-caseLatency>7</Average-caseLatency>
+                    <Worst-caseLatency>7</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>28.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>28.000 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>28.000 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>6</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <Loop1>
+                        <Name>Loop 1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>5</TripCount>
+                        <Latency>5</Latency>
+                        <AbsoluteTimeLatency>20.000 ns</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </Loop1>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>-</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <Loop1>
+                            <Name>Loop 1</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>-</SourceLocation>
+                        </Loop1>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>5</FF>
+                    <AVAIL_FF>2592000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>47</LUT>
+                    <AVAIL_LUT>1296000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="Loop 1" OPTYPE="seteq" PRAGMA="" RTLNAME="exitcond2_fu_50_p2" SOURCE="" STORAGESUBTYPE="" URAM="0" VARIABLE="exitcond2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="Loop 1" OPTYPE="add" PRAGMA="" RTLNAME="empty_10_fu_56_p2" SOURCE="" STORAGESUBTYPE="" URAM="0" VARIABLE="empty_10" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>cl_box_Pipeline_VITIS_LOOP_22_1</Name>
+            <Loops>
+                <VITIS_LOOP_22_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.190</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>3</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>12.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 0</PipelineInitiationInterval>
+                    <PipelineType>loop auto-rewind stp (delay=0 clock cycles(s))</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_22_1>
+                        <Name>VITIS_LOOP_22_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>1 ~ ?</Latency>
+                        <AbsoluteTimeLatency>4.000 ns ~ ?</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_22_1>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>cl_box.cpp:19~cl_box.cpp:54</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_22_1>
+                            <Name>VITIS_LOOP_22_1</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>cl_box.cpp:24~cl_box.cpp:54</SourceLocation>
+                        </VITIS_LOOP_22_1>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>9</FF>
+                    <AVAIL_FF>2592000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>99</LUT>
+                    <AVAIL_LUT>1296000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_22_1" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln22_fu_82_p2" SOURCE="cl_box.cpp:22" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln22" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_22_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln24_fu_88_p2" SOURCE="cl_box.cpp:24" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln24" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>cl_box</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.749</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>18</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>72.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>19 ~ ?</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>cl_box.cpp:40</SourceLocation>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>154</FF>
+                    <AVAIL_FF>2592000</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>395</LUT>
+                    <AVAIL_LUT>1296000</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="" RTLNAME="cmd_array_U" SOURCE="cl_box.cpp:15" STORAGESIZE="32 5 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_2p array" URAM="0" VARIABLE="cmd_array" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="sub_i_fu_199_p2" SOURCE="cl_box.cpp:21" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_i" VISIBLE="true"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln22_fu_208_p2" SOURCE="cl_box.cpp:22" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln22" VISIBLE="true"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="ctl_cmd_stream" index="0" direction="in" srcType="stream&lt;unsigned int, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="ctl_cmd_stream" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="a_baseaddr" index="1" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="a_baseaddr" name="a_baseaddr" usage="data" direction="out"/>
+                <hwRef type="port" interface="a_baseaddr_ap_vld" name="a_baseaddr_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="b_baseaddr" index="2" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="b_baseaddr" name="b_baseaddr" usage="data" direction="out"/>
+                <hwRef type="port" interface="b_baseaddr_ap_vld" name="b_baseaddr_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="c_baseaddr" index="3" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="c_baseaddr" name="c_baseaddr" usage="data" direction="out"/>
+                <hwRef type="port" interface="c_baseaddr_ap_vld" name="c_baseaddr_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="a_row" index="4" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="a_row" name="a_row" usage="data" direction="out"/>
+                <hwRef type="port" interface="a_row_ap_vld" name="a_row_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="a_col" index="5" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="a_col" name="a_col" usage="data" direction="out"/>
+                <hwRef type="port" interface="a_col_ap_vld" name="a_col_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="b_col" index="6" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="b_col" name="b_col" usage="data" direction="out"/>
+                <hwRef type="port" interface="b_col_ap_vld" name="b_col_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="work_id" index="7" direction="out" srcType="int&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="work_id" name="work_id" usage="data" direction="out"/>
+                <hwRef type="port" interface="work_id_ap_vld" name="work_id_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ctl_cmd_stream" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" direction="in" dataWidth="32" portPrefix="ctl_cmd_stream_">
+            <portMaps>
+                <portMap portMapName="ctl_cmd_stream_dout">RD_DATA</portMap>
+                <portMap portMapName="ctl_cmd_stream_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="ctl_cmd_stream_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>ctl_cmd_stream_dout</port>
+                <port>ctl_cmd_stream_empty_n</port>
+                <port>ctl_cmd_stream_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="ctl_cmd_stream"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_baseaddr" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="a_baseaddr">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_baseaddr</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_baseaddr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_baseaddr" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="b_baseaddr">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_baseaddr</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_baseaddr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="c_baseaddr" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="c_baseaddr">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>c_baseaddr</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="c_baseaddr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_row" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="a_row">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_row</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_row"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_col" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="a_col">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_col</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_col"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_col" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="b_col">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_col</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_col"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="work_id" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="work_id">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>work_id</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="work_id"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AP_FIFO">
+                <table>
+                    <keys size="3">Interface, Direction, Data Width</keys>
+                    <column name="ctl_cmd_stream">in, 32</column>
+                </table>
+            </item>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="a_baseaddr">ap_vld, out, 32</column>
+                    <column name="a_col">ap_vld, out, 32</column>
+                    <column name="a_row">ap_vld, out, 32</column>
+                    <column name="b_baseaddr">ap_vld, out, 32</column>
+                    <column name="b_col">ap_vld, out, 32</column>
+                    <column name="c_baseaddr">ap_vld, out, 32</column>
+                    <column name="work_id">ap_vld, out, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table>
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst">reset, ap_rst</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table>
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="ctl_cmd_stream">in, stream&lt;unsigned int 0&gt;&amp;</column>
+                    <column name="a_baseaddr">out, int&amp;</column>
+                    <column name="b_baseaddr">out, int&amp;</column>
+                    <column name="c_baseaddr">out, int&amp;</column>
+                    <column name="a_row">out, int&amp;</column>
+                    <column name="a_col">out, int&amp;</column>
+                    <column name="b_col">out, int&amp;</column>
+                    <column name="work_id">out, int&amp;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table>
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="ctl_cmd_stream">ctl_cmd_stream, interface</column>
+                    <column name="a_baseaddr">a_baseaddr, port</column>
+                    <column name="a_baseaddr">a_baseaddr_ap_vld, port</column>
+                    <column name="b_baseaddr">b_baseaddr, port</column>
+                    <column name="b_baseaddr">b_baseaddr_ap_vld, port</column>
+                    <column name="c_baseaddr">c_baseaddr, port</column>
+                    <column name="c_baseaddr">c_baseaddr_ap_vld, port</column>
+                    <column name="a_row">a_row, port</column>
+                    <column name="a_row">a_row_ap_vld, port</column>
+                    <column name="a_col">a_col, port</column>
+                    <column name="a_col">a_col_ap_vld, port</column>
+                    <column name="b_col">b_col, port</column>
+                    <column name="b_col">b_col_ap_vld, port</column>
+                    <column name="work_id">work_id, port</column>
+                    <column name="work_id">work_id_ap_vld, port</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <PragmaReport>
+        <Pragma type="interface" location="cl_box.cpp:46" status="valid" parentFunction="cl_box" variable="return" isDirective="0" options="mode=ap_ctrl_hs port=return"/>
+        <Pragma type="inline" location="cl_box.cpp:48" status="valid" parentFunction="cl_box" variable="" isDirective="0" options="recursive"/>
+    </PragmaReport>
+</profile>
+

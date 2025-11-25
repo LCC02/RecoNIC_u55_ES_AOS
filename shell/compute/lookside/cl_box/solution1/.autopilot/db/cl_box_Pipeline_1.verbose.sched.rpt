@@ -1,0 +1,131 @@
+
+
+================================================================
+== Vitis HLS Report for 'cl_box_Pipeline_1'
+================================================================
+* Date:           Fri Nov 21 17:57:05 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        cl_box
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu11p-flga2577-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  1.905 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max    | min | max |                      Type                      |
+    +---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+    |        7|        7|  28.000 ns|  28.000 ns|    6|    6|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+-----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        5|        5|         1|          1|          1|     5|       yes|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.90>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%empty = alloca i32 1"   --->   Operation 4 'alloca' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.46ns)   --->   "%store_ln0 = store i3 0, i3 %empty"   --->   Operation 5 'store' 'store_ln0' <Predicate = true> <Delay = 0.46>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%br_ln0 = br void %memset.loop"   --->   Operation 6 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%p_load = load i3 %empty"   --->   Operation 7 'load' 'p_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.71ns)   --->   "%exitcond2 = icmp_eq  i3 %p_load, i3 5"   --->   Operation 8 'icmp' 'exitcond2' <Predicate = true> <Delay = 0.71> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.71> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.71ns)   --->   "%empty_10 = add i3 %p_load, i3 1"   --->   Operation 9 'add' 'empty_10' <Predicate = true> <Delay = 0.71> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.71> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln0 = br i1 %exitcond2, void %memset.loop.split, void %split.exitStub"   --->   Operation 10 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%p_cast = zext i3 %p_load"   --->   Operation 11 'zext' 'p_cast' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty"   --->   Operation 12 'specpipeline' 'specpipeline_ln0' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 5, i64 5, i64 5"   --->   Operation 13 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%cmd_array_addr = getelementptr i32 %cmd_array, i64 0, i64 %p_cast"   --->   Operation 14 'getelementptr' 'cmd_array_addr' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] ( I:0.73ns O:0.73ns )   --->   "%store_ln0 = store i32 0, i3 %cmd_array_addr"   --->   Operation 15 'store' 'store_ln0' <Predicate = (!exitcond2)> <Delay = 0.73> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5> <RAM>
+ST_1 : Operation 16 [1/1] (0.46ns)   --->   "%store_ln0 = store i3 %empty_10, i3 %empty"   --->   Operation 16 'store' 'store_ln0' <Predicate = (!exitcond2)> <Delay = 0.46>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln0 = br void %memset.loop"   --->   Operation 17 'br' 'br_ln0' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.46ns)   --->   "%ret_ln0 = ret"   --->   Operation 18 'ret' 'ret_ln0' <Predicate = (exitcond2)> <Delay = 0.46>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 1.905ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln0') of constant 0 on local variable 'empty' [3]  (0.460 ns)
+	'load' operation 3 bit ('p_load') on local variable 'empty' [6]  (0.000 ns)
+	'icmp' operation 1 bit ('exitcond2') [7]  (0.715 ns)
+	'store' operation 0 bit ('store_ln0') of constant 0 on array 'cmd_array' [15]  (0.730 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

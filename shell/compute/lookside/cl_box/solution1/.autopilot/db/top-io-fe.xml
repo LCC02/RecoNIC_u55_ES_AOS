@@ -1,0 +1,49 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel src_name="cl_box" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
+    <args>
+      <arg id="0" access_type="r" src_name="ctl_cmd_stream" src_type="stream&lt;unsigned int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="FIFO" hw_name="ctl_cmd_stream" hw_bitwidth="32" hw_size_or_depth="0" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="1" access_type="w" src_name="a_baseaddr" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="a_baseaddr" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="w" src_name="b_baseaddr" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="b_baseaddr" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="3" access_type="w" src_name="c_baseaddr" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="c_baseaddr" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="4" access_type="w" src_name="a_row" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="a_row" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="5" access_type="w" src_name="a_col" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="a_col" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="6" access_type="w" src_name="b_col" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="b_col" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="7" access_type="w" src_name="work_id" src_type="int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="work_id" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+    </args>
+    <return src_type="void" src_bitwidth="0" offset="0x0">
+      <hw hw_usage="data" hw_interface="" hw_name="" hw_bitwidth="0" hw_kernel_support="true"/>
+    </return>
+  </kernel>
+</root>

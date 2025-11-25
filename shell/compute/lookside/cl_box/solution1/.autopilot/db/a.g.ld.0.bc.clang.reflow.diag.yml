@@ -1,0 +1,55 @@
+--- !Passed
+Pass:            reflow-recursive-inline
+Name:            RecursiveInline
+DebugLoc:        { File: cl_box.cpp, Line: 48, Column: 9 }
+Function:        _Z6cl_boxRN3hls6streamIjLi0EEERiS3_S3_S3_S3_S3_S3_
+Args:            
+  - String:          'Performing recursive inline in function '''
+  - Callee:          cl_box
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: cl_box.cpp, Line: 54, Column: 5 }
+Function:        _Z6cl_boxRN3hls6streamIjLi0EEERiS3_S3_S3_S3_S3_S3_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'parse_ctl_cmd(hls::stream<unsigned int, 0>&, int&, int&, int&, int&, int&, int&, int&) (.1)'
+    DebugLoc:        { File: cl_box.cpp, Line: 12, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'cl_box(hls::stream<unsigned int, 0>&, int&, int&, int&, int&, int&, int&, int&)'
+    DebugLoc:        { File: cl_box.cpp, Line: 40, Column: 0 }
+  - String:          ''''
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_cl_box_ir
+Args:            
+  - Callee:          'cl_box(hls::stream<unsigned int, 0>&, int&, int&, int&, int&, int&, int&, int&)'
+    DebugLoc:        { File: cl_box.cpp, Line: 40, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_cl_box_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        unknown
+  - String:          '> at '
+  - LoopLoc:         ''
+  - String:          ' '
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_22_1
+  - String:          '> at '
+  - LoopLoc:         'cl_box.cpp:22:22'
+  - String:          ' '
+...

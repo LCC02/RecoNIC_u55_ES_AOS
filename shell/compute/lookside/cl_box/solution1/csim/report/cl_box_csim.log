@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+make[1]: Entering directory '/work/amotta/RecoNIC/shell/compute/lookside/cl_box/solution1/csim/build'
+   Compiling ../../../../test_cl_box.cpp in debug mode
+   Compiling ../../../../cl_box.cpp in debug mode
+   Generating csim.exe
+make[1]: Leaving directory '/work/amotta/RecoNIC/shell/compute/lookside/cl_box/solution1/csim/build'
+TEST PASSED
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 6
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

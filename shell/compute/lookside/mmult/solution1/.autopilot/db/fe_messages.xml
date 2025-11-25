@@ -1,0 +1,66 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/work/amotta/RecoNIC/shell/compute/lookside/mmult.tcl:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=mmult" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:76:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=a offset=direct bundle=systolic" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:77:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=b offset=direct bundle=systolic" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:78:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=c offset=direct bundle=systolic" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_vld port=a_row" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:81:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_vld port=a_col" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:82:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_vld port=b_col" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:83:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_vld port=work_id" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:85:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="mode=ap_ctrl_hs port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:93:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=localA dim=1 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:96:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=localB dim=2 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = localC dim = 0 complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:151:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=c_size max=c_size" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mmult.cpp:152:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mmult" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="mmult.cpp:154:9" msg_body="Loop 'systolic2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="systolic2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="mmult.cpp:156:13" msg_body="Loop 'systolic3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="systolic3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="mmult.cpp:61:0" msg_body="Unrolling loop 'systolic2' (mmult.cpp:154:9) in function 'mmult' completely with a factor of 16">
+        <args Factor="16" LoopLoc="mmult.cpp:154:9" LoopName="systolic2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="mmult.cpp:61:0" msg_body="Unrolling loop 'systolic3' (mmult.cpp:156:13) in function 'mmult' completely with a factor of 16">
+        <args Factor="16" LoopLoc="mmult.cpp:156:13" LoopName="systolic3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mmult.cpp:92:9" msg_body="Applying array_partition to 'localA': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="localA"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mmult.cpp:95:6" msg_body="Applying array_partition to 'localB': Complete partitioning on dimension 2.">
+        <args Dim="2" Mode="Complete" UOName="localB"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mmult.cpp:98:6" msg_body="Applying array_partition to 'localC': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
+        <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="localC"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

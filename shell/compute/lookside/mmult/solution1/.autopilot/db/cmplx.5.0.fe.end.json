@@ -1,0 +1,86 @@
+{
+    "1": {
+        "name": "mmult_Pipeline_1",
+        "file": "mmult.cpp",
+        "fileloc": "104",
+        "instructions": "81",
+        "total_instructions": "81",
+        "calls": "",
+        "basicblocks": "23",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "20"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "mmult_Pipeline_systolic1",
+        "file": "mmult.cpp",
+        "fileloc": "150",
+        "instructions": "2203",
+        "total_instructions": "2203",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "545"
+        },
+        "stores": {
+            "L": "258"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "mmult",
+        "file": "mmult.cpp",
+        "fileloc": "53",
+        "instructions": "595",
+        "total_instructions": "3265",
+        "calls": "1 4 2 3",
+        "basicblocks": "1",
+        "loads": {
+            "L": "256"
+        }
+    },
+    "3": {
+        "name": "mmult_Pipeline_4",
+        "file": "mmult.cpp",
+        "fileloc": "176",
+        "instructions": "305",
+        "total_instructions": "305",
+        "calls": "",
+        "basicblocks": "6",
+        "loads": {
+            "L": "3"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "mmult_Pipeline_2",
+        "file": "mmult.cpp",
+        "fileloc": "108",
+        "instructions": "81",
+        "total_instructions": "81",
+        "calls": "",
+        "basicblocks": "23",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "20"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}
