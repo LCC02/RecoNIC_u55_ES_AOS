@@ -1,0 +1,1 @@
+sudo env LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./read -r 192.100.51.1 -i 192.100.52.1 -p /sys/bus/pci/devices/0000\:07\:00.0/resource2 -z 128 -l host_mem -d /dev/reconic-mm -c -u 22222 -t 11111 --dst_qp 2 -g 2>&1 | tee server_debug.log

@@ -2,7 +2,7 @@ bueno:
 ./program_fpga.sh -b 01:00.0 -t XFL1IAEL2T33A -p reconic_u55c.mcs
 
 twix
-./program_fpga.sh -b 01:00.0 -t XFL11ZIPGA2GA -p reconic_u55c.mcs -r twix
+./program_fpga.sh -b 01:00.0 -t XFL13CWPGUVRA -p reconic_u55c.mcs -r twix
 
-arizona
-./program_fpga.sh -b 01:00.0 -t TBD -p reconic_u55c.mcs -r arizona
+arizona 
+./program_fpga.sh -b 01:00.0 -t XFL11ZIPGA2GA  -p reconic_u55c.mcs -r arizona

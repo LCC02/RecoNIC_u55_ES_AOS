@@ -500,4 +500,3 @@ out:
   destroy_rn_dev(rn_dev);
   return 0;
 }
-

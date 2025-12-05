@@ -1,0 +1,4 @@
+#sigasi local project files
+.library_mapping.xml
+.project
+.settings*

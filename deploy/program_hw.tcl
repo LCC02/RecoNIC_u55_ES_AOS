@@ -14,6 +14,8 @@
 set root_dir [file normalize ..]
 set script_dir ${root_dir}/script
 set nic_dir ${root_dir}/base_nics/open-nic-shell
+
+set default_config_file ""
 set default_mcs reconic_u55c.mcs
 
 

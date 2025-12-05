@@ -107,6 +107,8 @@ echo "config_file: $config_file"
 echo "target_id: $target_id"
 echo "remote_host: $remote_host"
 
+if [ "$remote_host" == "" ]; then
+
 # Check device existence
 if [ ! -e "/sys/bus/pci/devices/$pcie_bdf_num" ]; then
   echo "Error: PCIe device $pcie_bdf_num not found"
@@ -124,14 +126,20 @@ if [ -e "/sys/bus/pci/devices/${pcie_bdf_num}/driver" ]; then
   sudo bash -c "echo '${pcie_bdf_num}' >> /sys/bus/pci/devices/${pcie_bdf_num}/driver/unbind"
 fi
 
-echo "vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -remote_host $remote_host -prog_file $prog_file"
-vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -remote_host $remote_host -prog_file $prog_file
+  echo "vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -prog_file $prog_file"
+  vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -prog_file $prog_file
 
-# Enable device after reprogram
-echo "Renable FPGA card"
-sudo bash -c "echo 1 >> /sys/bus/pci/devices/$slot_num/$pcie_bdf_num/remove"
-sudo bash -c "echo 1 >> /sys/bus/pci/devices/$slot_num/rescan"
-sudo setpci -s $pcie_bdf_num COMMAND=0x02
+  # Enable device after reprogram
+  echo "Renable FPGA card"
+  sudo bash -c "echo 1 >> /sys/bus/pci/devices/$slot_num/$pcie_bdf_num/remove"
+  sudo bash -c "echo 1 >> /sys/bus/pci/devices/$slot_num/rescan"
+  sudo setpci -s $pcie_bdf_num COMMAND=0x02
+
+else
+  echo "vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -remote_host $remote_host -prog_file $prog_file"
+  vivado -mode tcl -source program_hw.tcl -tclargs -target_id $target_id -remote_host $remote_host -prog_file $prog_file
+fi
+
 
 echo "Success: FPGA is up and ready"
 
