@@ -1,6 +1,6 @@
 [submodule "base_nics/open-nic-shell"]
 	path = base_nics/open-nic-shell
-	url = https://github.com/FriedDede/open-nic-shell_u55.git
+	url = https://github.com/SteveOrDan/open-nic-shell_u55.git
 	branch = au55_support
 [submodule "drivers/onic-driver"]
 	path = drivers/onic-driver
