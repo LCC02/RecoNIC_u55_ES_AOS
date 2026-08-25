@@ -25,29 +25,29 @@ module rn_reg_control #(
   parameter DEFAULT_VALUE   = 32'hDEEDBEEF
 )(
   input                              s_axil_reg_awvalid,
-  input  [AXIL_ADDR_WIDTH-1:0]       s_axil_reg_awaddr ,
+  input        [AXIL_ADDR_WIDTH-1:0] s_axil_reg_awaddr,
   output logic                       s_axil_reg_awready,
-  input                              s_axil_reg_wvalid ,
-  input  [AXIL_DATA_WIDTH-1:0]       s_axil_reg_wdata  ,
-  output logic                       s_axil_reg_wready ,
-  output logic                       s_axil_reg_bvalid ,
-  output logic [1:0]                 s_axil_reg_bresp  ,
-  input                              s_axil_reg_bready ,
+  input                              s_axil_reg_wvalid,
+  input        [AXIL_DATA_WIDTH-1:0] s_axil_reg_wdata,
+  output logic                       s_axil_reg_wready,
+  output logic                       s_axil_reg_bvalid,
+  output logic                 [1:0] s_axil_reg_bresp,
+  input                              s_axil_reg_bready,
   input                              s_axil_reg_arvalid,
-  input  [AXIL_ADDR_WIDTH-1:0]       s_axil_reg_araddr ,
+  input        [AXIL_ADDR_WIDTH-1:0] s_axil_reg_araddr,
   output logic                       s_axil_reg_arready,
-  output logic                       s_axil_reg_rvalid ,
-  output logic [AXIL_DATA_WIDTH-1:0] s_axil_reg_rdata  ,
-  output logic [1:0]                 s_axil_reg_rresp  ,
-  input                              s_axil_reg_rready ,
+  output logic                       s_axil_reg_rvalid,
+  output logic [AXIL_DATA_WIDTH-1:0] s_axil_reg_rdata,
+  output logic                 [1:0] s_axil_reg_rresp,
+  input                              s_axil_reg_rready,
 
   // Packet statistics registers
   input                              roce_pkt_recved,
   input                              non_roce_pkt_recved,
   input        [AXIL_DATA_WIDTH-1:0] fatal_err,
 
-  input axil_aclk,
-  input axil_arstn
+  input                              axil_aclk,
+  input                              axil_arstn
 );
 
 function integer log2;

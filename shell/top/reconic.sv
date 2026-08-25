@@ -14,153 +14,153 @@ module reconic # (
   parameter AXIS_USER_WIDTH      = 16
 ) (
   // Table control interface
-  input         s_axil_ctrl_awvalid,
-  input  [31:0] s_axil_ctrl_awaddr,
-  output        s_axil_ctrl_awready,
-  input         s_axil_ctrl_wvalid,
-  input  [31:0] s_axil_ctrl_wdata,
-  output        s_axil_ctrl_wready,
-  output        s_axil_ctrl_bvalid,
-  output  [1:0] s_axil_ctrl_bresp,
-  input         s_axil_ctrl_bready,
-  input         s_axil_ctrl_arvalid,
-  input  [31:0] s_axil_ctrl_araddr,
-  output        s_axil_ctrl_arready,
-  output        s_axil_ctrl_rvalid,
-  output [31:0] s_axil_ctrl_rdata,
-  output  [1:0] s_axil_ctrl_rresp,
-  input         s_axil_ctrl_rready,
+  input          s_axil_ctrl_awvalid,
+  input   [31:0] s_axil_ctrl_awaddr,
+  output         s_axil_ctrl_awready,
+  input          s_axil_ctrl_wvalid,
+  input   [31:0] s_axil_ctrl_wdata,
+  output         s_axil_ctrl_wready,
+  output         s_axil_ctrl_bvalid,
+  output   [1:0] s_axil_ctrl_bresp,
+  input          s_axil_ctrl_bready,
+  input          s_axil_ctrl_arvalid,
+  input   [31:0] s_axil_ctrl_araddr,
+  output         s_axil_ctrl_arready,
+  output         s_axil_ctrl_rvalid,
+  output  [31:0] s_axil_ctrl_rdata,
+  output   [1:0] s_axil_ctrl_rresp,
+  input          s_axil_ctrl_rready,
 
   // Register control interface
-  input         s_axil_reg_awvalid,
-  input  [31:0] s_axil_reg_awaddr,
-  output        s_axil_reg_awready,
-  input         s_axil_reg_wvalid,
-  input  [31:0] s_axil_reg_wdata,
-  output        s_axil_reg_wready,
-  output        s_axil_reg_bvalid,
-  output  [1:0] s_axil_reg_bresp,
-  input         s_axil_reg_bready,
-  input         s_axil_reg_arvalid,
-  input  [31:0] s_axil_reg_araddr,
-  output        s_axil_reg_arready,
-  output        s_axil_reg_rvalid,
-  output [31:0] s_axil_reg_rdata,
-  output  [1:0] s_axil_reg_rresp,
-  input         s_axil_reg_rready,
+  input          s_axil_reg_awvalid,
+  input   [31:0] s_axil_reg_awaddr,
+  output         s_axil_reg_awready,
+  input          s_axil_reg_wvalid,
+  input   [31:0] s_axil_reg_wdata,
+  output         s_axil_reg_wready,
+  output         s_axil_reg_bvalid,
+  output   [1:0] s_axil_reg_bresp,
+  input          s_axil_reg_bready,
+  input          s_axil_reg_arvalid,
+  input   [31:0] s_axil_reg_araddr,
+  output         s_axil_reg_arready,
+  output         s_axil_reg_rvalid,
+  output  [31:0] s_axil_reg_rdata,
+  output   [1:0] s_axil_reg_rresp,
+  input          s_axil_reg_rready,
 
   // Compute Logic Register control interface
-  input         s_axil_cl_reg_awvalid,
-  input  [31:0] s_axil_cl_reg_awaddr,
-  output        s_axil_cl_reg_awready,
-  input         s_axil_cl_reg_wvalid,
-  input  [31:0] s_axil_cl_reg_wdata,
-  output        s_axil_cl_reg_wready,
-  output        s_axil_cl_reg_bvalid,
-  output  [1:0] s_axil_cl_reg_bresp,
-  input         s_axil_cl_reg_bready,
-  input         s_axil_cl_reg_arvalid,
-  input  [31:0] s_axil_cl_reg_araddr,
-  output        s_axil_cl_reg_arready,
-  output        s_axil_cl_reg_rvalid,
-  output [31:0] s_axil_cl_reg_rdata,
-  output  [1:0] s_axil_cl_reg_rresp,
-  input         s_axil_cl_reg_rready,
+  input          s_axil_cl_reg_awvalid,
+  input   [31:0] s_axil_cl_reg_awaddr,
+  output         s_axil_cl_reg_awready,
+  input          s_axil_cl_reg_wvalid,
+  input   [31:0] s_axil_cl_reg_wdata,
+  output         s_axil_cl_reg_wready,
+  output         s_axil_cl_reg_bvalid,
+  output   [1:0] s_axil_cl_reg_bresp,
+  input          s_axil_cl_reg_bready,
+  input          s_axil_cl_reg_arvalid,
+  input   [31:0] s_axil_cl_reg_araddr,
+  output         s_axil_cl_reg_arready,
+  output         s_axil_cl_reg_rvalid,
+  output  [31:0] s_axil_cl_reg_rdata,
+  output   [1:0] s_axil_cl_reg_rresp,
+  input          s_axil_cl_reg_rready,
 
   // Receive packets from CMAC RX path
-  input            s_axis_cmac_rx_tvalid,
-  input    [511:0] s_axis_cmac_rx_tdata,
-  input     [63:0] s_axis_cmac_rx_tkeep,
-  input            s_axis_cmac_rx_tlast,
-  input     [15:0] s_axis_cmac_rx_tuser_size,
+  input          s_axis_cmac_rx_tvalid,
+  input  [511:0] s_axis_cmac_rx_tdata,
+  input   [63:0] s_axis_cmac_rx_tkeep,
+  input          s_axis_cmac_rx_tlast,
+  input   [15:0] s_axis_cmac_rx_tuser_size,
 `ifdef DEBUG
-  input     [31:0] s_axis_cmac_rx_tuser_idx,
+  input   [31:0] s_axis_cmac_rx_tuser_idx,
 `endif
-  output           s_axis_cmac_rx_tready,
+  output         s_axis_cmac_rx_tready,
 
   // Send roce packets to rdma rx path
-  output           m_axis_user2rdma_roce_from_cmac_rx_tvalid,
-  output   [511:0] m_axis_user2rdma_roce_from_cmac_rx_tdata,
-  output    [63:0] m_axis_user2rdma_roce_from_cmac_rx_tkeep,
-  output           m_axis_user2rdma_roce_from_cmac_rx_tlast,
-  input            m_axis_user2rdma_roce_from_cmac_rx_tready,
+  output         m_axis_user2rdma_roce_from_cmac_rx_tvalid,
+  output [511:0] m_axis_user2rdma_roce_from_cmac_rx_tdata,
+  output  [63:0] m_axis_user2rdma_roce_from_cmac_rx_tkeep,
+  output         m_axis_user2rdma_roce_from_cmac_rx_tlast,
+  input          m_axis_user2rdma_roce_from_cmac_rx_tready,
 
   // Send non-roce packets to QDMA rx path
-  output           m_axis_qdma_c2h_tvalid,
-  output   [511:0] m_axis_qdma_c2h_tdata,
-  output    [63:0] m_axis_qdma_c2h_tkeep,
-  output           m_axis_qdma_c2h_tlast,
-  output    [15:0] m_axis_qdma_c2h_tuser_size,
-  input            m_axis_qdma_c2h_tready,
+  output         m_axis_qdma_c2h_tvalid,
+  output [511:0] m_axis_qdma_c2h_tdata,
+  output  [63:0] m_axis_qdma_c2h_tkeep,
+  output         m_axis_qdma_c2h_tlast,
+  output  [15:0] m_axis_qdma_c2h_tuser_size,
+  input          m_axis_qdma_c2h_tready,
 
   // Get non-roce packets from QDMA tx path
-  input            s_axis_qdma_h2c_tvalid,
-  input    [511:0] s_axis_qdma_h2c_tdata,
-  input     [63:0] s_axis_qdma_h2c_tkeep,
-  input            s_axis_qdma_h2c_tlast,
-  input     [15:0] s_axis_qdma_h2c_tuser_size,
-  output           s_axis_qdma_h2c_tready,  
+  input          s_axis_qdma_h2c_tvalid,
+  input  [511:0] s_axis_qdma_h2c_tdata,
+  input   [63:0] s_axis_qdma_h2c_tkeep,
+  input          s_axis_qdma_h2c_tlast,
+  input   [15:0] s_axis_qdma_h2c_tuser_size,
+  output         s_axis_qdma_h2c_tready,  
 
   // Send non-roce packets to rdma tx path
-  output           m_axis_user2rdma_from_qdma_tx_tvalid,
-  output   [511:0] m_axis_user2rdma_from_qdma_tx_tdata,
-  output    [63:0] m_axis_user2rdma_from_qdma_tx_tkeep,
-  output           m_axis_user2rdma_from_qdma_tx_tlast,
-  input            m_axis_user2rdma_from_qdma_tx_tready,
+  output         m_axis_user2rdma_from_qdma_tx_tvalid,
+  output [511:0] m_axis_user2rdma_from_qdma_tx_tdata,
+  output  [63:0] m_axis_user2rdma_from_qdma_tx_tkeep,
+  output         m_axis_user2rdma_from_qdma_tx_tlast,
+  input          m_axis_user2rdma_from_qdma_tx_tready,
 
   // Get roce packets from rdma tx path
-  input            s_axis_rdma2user_to_cmac_tx_tvalid,
-  input    [511:0] s_axis_rdma2user_to_cmac_tx_tdata,
-  input     [63:0] s_axis_rdma2user_to_cmac_tx_tkeep,
-  input            s_axis_rdma2user_to_cmac_tx_tlast,
-  output           s_axis_rdma2user_to_cmac_tx_tready,
+  input          s_axis_rdma2user_to_cmac_tx_tvalid,
+  input  [511:0] s_axis_rdma2user_to_cmac_tx_tdata,
+  input   [63:0] s_axis_rdma2user_to_cmac_tx_tkeep,
+  input          s_axis_rdma2user_to_cmac_tx_tlast,
+  output         s_axis_rdma2user_to_cmac_tx_tready,
 
   // Send packets to CMAC tx path
-  output           m_axis_cmac_tx_tvalid,
-  output   [511:0] m_axis_cmac_tx_tdata,
-  output    [63:0] m_axis_cmac_tx_tkeep,
-  output           m_axis_cmac_tx_tlast,
-  output    [15:0] m_axis_cmac_tx_tuser_size,
-  input            m_axis_cmac_tx_tready,
+  output         m_axis_cmac_tx_tvalid,
+  output [511:0] m_axis_cmac_tx_tdata,
+  output  [63:0] m_axis_cmac_tx_tkeep,
+  output         m_axis_cmac_tx_tlast,
+  output  [15:0] m_axis_cmac_tx_tuser_size,
+  input          m_axis_cmac_tx_tready,
 
   // Compute Logic AXI interface for memory access
-  output            m_axi_compute_logic_awid,
-  output   [63 : 0] m_axi_compute_logic_awaddr,
-  output    [3 : 0] m_axi_compute_logic_awqos,
-  output    [7 : 0] m_axi_compute_logic_awlen,
-  output    [2 : 0] m_axi_compute_logic_awsize,
-  output    [1 : 0] m_axi_compute_logic_awburst,
-  output    [3 : 0] m_axi_compute_logic_awcache,
-  output    [2 : 0] m_axi_compute_logic_awprot,
-  output            m_axi_compute_logic_awvalid,
-  input             m_axi_compute_logic_awready,
-  output  [511 : 0] m_axi_compute_logic_wdata,
-  output   [63 : 0] m_axi_compute_logic_wstrb,
-  output            m_axi_compute_logic_wlast,
-  output            m_axi_compute_logic_wvalid,
-  input             m_axi_compute_logic_wready,
-  output            m_axi_compute_logic_awlock,
-  input             m_axi_compute_logic_bid,
-  input     [1 : 0] m_axi_compute_logic_bresp,
-  input             m_axi_compute_logic_bvalid,
-  output            m_axi_compute_logic_bready,
-  output            m_axi_compute_logic_arid,
-  output   [63 : 0] m_axi_compute_logic_araddr,
-  output    [7 : 0] m_axi_compute_logic_arlen,
-  output    [2 : 0] m_axi_compute_logic_arsize,
-  output    [1 : 0] m_axi_compute_logic_arburst,
-  output    [3 : 0] m_axi_compute_logic_arcache,
-  output    [2 : 0] m_axi_compute_logic_arprot,
-  output            m_axi_compute_logic_arvalid,
-  input             m_axi_compute_logic_arready,
-  input             m_axi_compute_logic_rid,
-  input   [511 : 0] m_axi_compute_logic_rdata,
-  input     [1 : 0] m_axi_compute_logic_rresp,
-  input             m_axi_compute_logic_rlast,
-  input             m_axi_compute_logic_rvalid,
-  output            m_axi_compute_logic_rready,
-  output            m_axi_compute_logic_arlock,
-  output     [3:0]  m_axi_compute_logic_arqos,
+  output         m_axi_compute_logic_awid,
+  output  [63:0] m_axi_compute_logic_awaddr,
+  output   [3:0] m_axi_compute_logic_awqos,
+  output   [7:0] m_axi_compute_logic_awlen,
+  output   [2:0] m_axi_compute_logic_awsize,
+  output   [1:0] m_axi_compute_logic_awburst,
+  output   [3:0] m_axi_compute_logic_awcache,
+  output   [2:0] m_axi_compute_logic_awprot,
+  output         m_axi_compute_logic_awvalid,
+  input          m_axi_compute_logic_awready,
+  output [511:0] m_axi_compute_logic_wdata,
+  output  [63:0] m_axi_compute_logic_wstrb,
+  output         m_axi_compute_logic_wlast,
+  output         m_axi_compute_logic_wvalid,
+  input          m_axi_compute_logic_wready,
+  output         m_axi_compute_logic_awlock,
+  input          m_axi_compute_logic_bid,
+  input    [1:0] m_axi_compute_logic_bresp,
+  input          m_axi_compute_logic_bvalid,
+  output         m_axi_compute_logic_bready,
+  output         m_axi_compute_logic_arid,
+  output  [63:0] m_axi_compute_logic_araddr,
+  output   [7:0] m_axi_compute_logic_arlen,
+  output   [2:0] m_axi_compute_logic_arsize,
+  output   [1:0] m_axi_compute_logic_arburst,
+  output   [3:0] m_axi_compute_logic_arcache,
+  output   [2:0] m_axi_compute_logic_arprot,
+  output         m_axi_compute_logic_arvalid,
+  input          m_axi_compute_logic_arready,
+  input          m_axi_compute_logic_rid,
+  input  [511:0] m_axi_compute_logic_rdata,
+  input    [1:0] m_axi_compute_logic_rresp,
+  input          m_axi_compute_logic_rlast,
+  input          m_axi_compute_logic_rvalid,
+  output         m_axi_compute_logic_rready,
+  output         m_axi_compute_logic_arlock,
+  output   [3:0] m_axi_compute_logic_arqos,
 
   input          axil_aclk,
   input          axil_rstn,
@@ -200,7 +200,7 @@ logic [31:0] pc_in_ip_src;
 logic [31:0] pc_in_ip_dst;
 logic [15:0] pc_in_udp_sport;
 logic [15:0] pc_in_udp_dport;
-logic [4:0]  pc_in_opcode;
+logic  [4:0] pc_in_opcode;
 logic [15:0] pc_in_pktlen;
 logic [31:0] pc_in_dma_length;
 logic [31:0] pc_in_r_key;
@@ -215,7 +215,7 @@ logic [31:0] pc_out_index;
 (* mark_debug = "true" *) logic [31:0] pc_out_ip_dst;
 (* mark_debug = "true" *) logic [15:0] pc_out_udp_sport;
 (* mark_debug = "true" *) logic [15:0] pc_out_udp_dport;
-(* mark_debug = "true" *) logic [4:0]  pc_out_opcode;
+(* mark_debug = "true" *) logic  [4:0] pc_out_opcode;
 (* mark_debug = "true" *) logic [15:0] pc_out_pktlen;
 (* mark_debug = "true" *) logic [31:0] pc_out_dma_length;
 (* mark_debug = "true" *) logic [31:0] pc_out_r_key;
@@ -224,19 +224,19 @@ logic [31:0] pc_out_index;
 (* mark_debug = "true" *) logic [23:0] pc_out_msn;
 (* mark_debug = "true" *) logic        pc_out_is_rdma;
 
-logic roce_pkt_recved;
-logic non_roce_pkt_recved;
-logic packet_filter_err;
-logic roce_pkt_recved_at_axis_clk;
-logic non_roce_pkt_recved_at_axis_clk;
+logic        roce_pkt_recved;
+logic        non_roce_pkt_recved;
+logic        packet_filter_err;
+logic        roce_pkt_recved_at_axis_clk;
+logic        non_roce_pkt_recved_at_axis_clk;
 logic [31:0] fatal_err;
 
 // Declaration for buffer_mac_rx_data
-logic wr_en;
-logic rd_en;
-logic buffer_full;
-logic buff_empty;
-logic buffer_vld;
+logic         wr_en;
+logic         rd_en;
+logic         buffer_full;
+logic         buff_empty;
+logic         buffer_vld;
 logic [511:0] buffer_out_tdata;
 logic  [63:0] buffer_out_tkeep;
 logic  [15:0] buffer_out_tuser_size;
@@ -247,21 +247,21 @@ logic  [31:0] buffer_out_tuser_idx;
 
 logic         pc_in_tvalid;
 logic [511:0] pc_in_tdata;
-logic [63:0]  pc_in_tkeep;
+logic  [63:0] pc_in_tkeep;
 logic         pc_in_tlast;
 logic         pc_in_tready;
 
 logic         pc_non_roce_out_tvalid;
 logic [511:0] pc_non_roce_out_tdata;
-logic [63:0]  pc_non_roce_out_tkeep;
-logic [15:0]  pc_non_roce_out_tuser_size;
+logic  [63:0] pc_non_roce_out_tkeep;
+logic  [15:0] pc_non_roce_out_tuser_size;
 logic         pc_non_roce_out_tlast;
 logic         pc_non_roce_out_tready;
 
 logic         pc_roce_out_tvalid;
 logic [511:0] pc_roce_out_tdata;
-logic [63:0]  pc_roce_out_tkeep;
-logic [15:0]  pc_roce_out_tuser_size;
+logic  [63:0] pc_roce_out_tkeep;
+logic  [15:0] pc_roce_out_tuser_size;
 logic         pc_roce_out_tlast;
 logic         pc_roce_out_tready;
 
@@ -278,43 +278,43 @@ rn_reg_control #(
   .AXIL_ADDR_WIDTH(AXIL_REG_ADDR_WIDTH),
   .AXIL_DATA_WIDTH(AXIL_DATA_WIDTH)
 ) rn_reg_control_inst (
-  .s_axil_reg_awvalid(s_axil_reg_awvalid),
-  .s_axil_reg_awaddr (s_axil_reg_awaddr[AXIL_REG_ADDR_WIDTH-1:0]),
-  .s_axil_reg_awready(s_axil_reg_awready),
-  .s_axil_reg_wvalid (s_axil_reg_wvalid ),
-  .s_axil_reg_wdata  (s_axil_reg_wdata  ),
-  .s_axil_reg_wready (s_axil_reg_wready ),
-  .s_axil_reg_bvalid (s_axil_reg_bvalid ),
-  .s_axil_reg_bresp  (s_axil_reg_bresp  ),
-  .s_axil_reg_bready (s_axil_reg_bready ),
-  .s_axil_reg_arvalid(s_axil_reg_arvalid),
-  .s_axil_reg_araddr (s_axil_reg_araddr[AXIL_REG_ADDR_WIDTH-1:0]),
-  .s_axil_reg_arready(s_axil_reg_arready),
-  .s_axil_reg_rvalid (s_axil_reg_rvalid ),
-  .s_axil_reg_rdata  (s_axil_reg_rdata  ),
-  .s_axil_reg_rresp  (s_axil_reg_rresp  ),
-  .s_axil_reg_rready (s_axil_reg_rready ),
+  .s_axil_reg_awvalid  (s_axil_reg_awvalid),
+  .s_axil_reg_awaddr   (s_axil_reg_awaddr[AXIL_REG_ADDR_WIDTH-1:0]),
+  .s_axil_reg_awready  (s_axil_reg_awready),
+  .s_axil_reg_wvalid   (s_axil_reg_wvalid),
+  .s_axil_reg_wdata    (s_axil_reg_wdata),
+  .s_axil_reg_wready   (s_axil_reg_wready),
+  .s_axil_reg_bvalid   (s_axil_reg_bvalid),
+  .s_axil_reg_bresp    (s_axil_reg_bresp),
+  .s_axil_reg_bready   (s_axil_reg_bready),
+  .s_axil_reg_arvalid  (s_axil_reg_arvalid),
+  .s_axil_reg_araddr   (s_axil_reg_araddr[AXIL_REG_ADDR_WIDTH-1:0]),
+  .s_axil_reg_arready  (s_axil_reg_arready),
+  .s_axil_reg_rvalid   (s_axil_reg_rvalid),
+  .s_axil_reg_rdata    (s_axil_reg_rdata),
+  .s_axil_reg_rresp    (s_axil_reg_rresp),
+  .s_axil_reg_rready   (s_axil_reg_rready),
 
   // input
-  .roce_pkt_recved    (roce_pkt_recved),
-  .non_roce_pkt_recved(non_roce_pkt_recved),
-  .fatal_err          (fatal_err),
+  .roce_pkt_recved     (roce_pkt_recved),
+  .non_roce_pkt_recved (non_roce_pkt_recved),
+  .fatal_err           (fatal_err),
 
-  .axil_aclk (axil_aclk),
-  .axil_arstn(axil_rstn)
+  .axil_aclk           (axil_aclk),
+  .axil_arstn          (axil_rstn)
 );
 
 // Buffer data coming from the MAC rx path
 `ifdef DEBUG
 xpm_fifo_sync #(
-  .DOUT_RESET_VALUE    ("0"),
-  .ECC_MODE            ("no_ecc"),
-  .FIFO_MEMORY_TYPE    ("auto"),
-  .FIFO_READ_LATENCY   (1),
-  .FIFO_WRITE_DEPTH    (FIFO_WRITE_DEPTH),
-  .READ_DATA_WIDTH     (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 32 + 1),
-  .READ_MODE           ("fwft"),
-  .WRITE_DATA_WIDTH    (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 32 + 1)
+  .DOUT_RESET_VALUE  ("0"),
+  .ECC_MODE          ("no_ecc"),
+  .FIFO_MEMORY_TYPE  ("auto"),
+  .FIFO_READ_LATENCY (1),
+  .FIFO_WRITE_DEPTH  (FIFO_WRITE_DEPTH),
+  .READ_DATA_WIDTH   (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 32 + 1),
+  .READ_MODE         ("fwft"),
+  .WRITE_DATA_WIDTH  (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 32 + 1)
 ) buffer_mac_rx_data (
   .wr_en         (wr_en),
   .din           ({s_axis_cmac_rx_tdata, s_axis_cmac_rx_tkeep, s_axis_cmac_rx_tuser_size, s_axis_cmac_rx_tuser_idx, s_axis_cmac_rx_tlast}),
@@ -348,14 +348,14 @@ xpm_fifo_sync #(
 );
 `else
 xpm_fifo_sync #(
-  .DOUT_RESET_VALUE    ("0"),
-  .ECC_MODE            ("no_ecc"),
-  .FIFO_MEMORY_TYPE    ("auto"),
-  .FIFO_READ_LATENCY   (1),
-  .FIFO_WRITE_DEPTH    (FIFO_WRITE_DEPTH),
-  .READ_DATA_WIDTH     (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 1),
-  .READ_MODE           ("fwft"),
-  .WRITE_DATA_WIDTH    (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 1)
+  .DOUT_RESET_VALUE  ("0"),
+  .ECC_MODE          ("no_ecc"),
+  .FIFO_MEMORY_TYPE  ("auto"),
+  .FIFO_READ_LATENCY (1),
+  .FIFO_WRITE_DEPTH  (FIFO_WRITE_DEPTH),
+  .READ_DATA_WIDTH   (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 1),
+  .READ_MODE         ("fwft"),
+  .WRITE_DATA_WIDTH  (AXIS_DATA_WIDTH + AXIS_KEEP_WIDTH + AXIS_USER_WIDTH + 1)
 ) buffer_mac_rx_data (
   .wr_en         (wr_en),
   .din           ({s_axis_cmac_rx_tdata, s_axis_cmac_rx_tkeep, s_axis_cmac_rx_tuser_size, s_axis_cmac_rx_tlast}),
@@ -399,23 +399,23 @@ assign pc_in_tlast           = rd_en ? buffer_out_tlast :   1'b0;
 
 // Metadata input
 `ifdef DEBUG
-assign pc_in_index      = buffer_out_tuser_idx;
+assign pc_in_index          = buffer_out_tuser_idx;
 `else
-assign pc_in_index      = 32'd0;
+assign pc_in_index          = 32'd0;
 `endif
-assign pc_in_ip_src     = 32'd0;
-assign pc_in_ip_dst     = 32'd0;
-assign pc_in_udp_sport  = 2'd0;
-assign pc_in_udp_dport  = 5'd0;
-assign pc_in_opcode     = 8'd0;
-assign pc_in_pktlen     = buffer_out_tuser_size;
-assign pc_in_dma_length = 56'd0;
-assign pc_in_r_key      = 6'd0;
-assign pc_in_se         = 2'd0;
-assign pc_in_psn        = 12'd0;
-assign pc_in_msn        = 24'd0;
-assign pc_in_is_rdma    = 1'b0;
-assign pc_in_metadata   = {pc_in_index, pc_in_ip_src, pc_in_ip_dst, pc_in_udp_sport, pc_in_udp_dport, pc_in_opcode, pc_in_pktlen, pc_in_dma_length, pc_in_r_key, pc_in_se, pc_in_psn, pc_in_msn, pc_in_is_rdma};
+assign pc_in_ip_src         = 32'd0;
+assign pc_in_ip_dst         = 32'd0;
+assign pc_in_udp_sport      = 2'd0;
+assign pc_in_udp_dport      = 5'd0;
+assign pc_in_opcode         = 8'd0;
+assign pc_in_pktlen         = buffer_out_tuser_size;
+assign pc_in_dma_length     = 56'd0;
+assign pc_in_r_key          = 6'd0;
+assign pc_in_se             = 2'd0;
+assign pc_in_psn            = 12'd0;
+assign pc_in_msn            = 24'd0;
+assign pc_in_is_rdma        = 1'b0;
+assign pc_in_metadata       = {pc_in_index, pc_in_ip_src, pc_in_ip_dst, pc_in_udp_sport, pc_in_udp_dport, pc_in_opcode, pc_in_pktlen, pc_in_dma_length, pc_in_r_key, pc_in_se, pc_in_psn, pc_in_msn, pc_in_is_rdma};
 assign pc_in_metadata_valid = pc_in_tvalid && pc_in_tready && set_pc_in_metadata_valid_low;
 
 // Metadata output, valid signal is pc_out_metadata_valid
@@ -457,17 +457,17 @@ packet_classification #(
   .METADATA_WIDTH(METADATA_WIDTH)
 )pacekt_classification_inst(
   // Metadata
-  .user_metadata_in       (pc_in_metadata),
-  .user_metadata_in_valid (pc_in_metadata_valid),
-  .user_metadata_out      (pc_out_metadata),
-  .user_metadata_out_valid(pc_out_metadata_valid),
+  .user_metadata_in           (pc_in_metadata),
+  .user_metadata_in_valid     (pc_in_metadata_valid),
+  .user_metadata_out          (pc_out_metadata),
+  .user_metadata_out_valid    (pc_out_metadata_valid),
 
   // Packet input in axi-streaming format
-  .s_axis_tdata           (pc_in_tdata),
-  .s_axis_tkeep           (pc_in_tkeep),
-  .s_axis_tvalid          (pc_in_tvalid),
-  .s_axis_tlast           (pc_in_tlast),
-  .s_axis_tready          (pc_in_tready),
+  .s_axis_tdata               (pc_in_tdata),
+  .s_axis_tkeep               (pc_in_tkeep),
+  .s_axis_tvalid              (pc_in_tvalid),
+  .s_axis_tlast               (pc_in_tlast),
+  .s_axis_tready              (pc_in_tready),
 
   // RoCEv2 packet output in axi-streaming format
   .m_axis_roce_tdata          (pc_roce_out_tdata),
@@ -486,29 +486,29 @@ packet_classification #(
   .m_axis_non_roce_tlast      (pc_non_roce_out_tlast),
 
   // Slave AXI-lite interface
-  .s_axil_ctrl_awaddr     (s_axil_ctrl_awaddr[AXIL_CTRL_ADDR_WIDTH-1:0]),
-  .s_axil_ctrl_awvalid    (s_axil_ctrl_awvalid),
-  .s_axil_ctrl_awready    (s_axil_ctrl_awready),
-  .s_axil_ctrl_wdata      (s_axil_ctrl_wdata),
-  .s_axil_ctrl_wvalid     (s_axil_ctrl_wvalid),
-  .s_axil_ctrl_wready     (s_axil_ctrl_wready),
-  .s_axil_ctrl_bresp      (s_axil_ctrl_bresp),
-  .s_axil_ctrl_bvalid     (s_axil_ctrl_bvalid),
-  .s_axil_ctrl_bready     (s_axil_ctrl_bready),
-  .s_axil_ctrl_araddr     (s_axil_ctrl_araddr[AXIL_CTRL_ADDR_WIDTH-1:0]),
-  .s_axil_ctrl_arvalid    (s_axil_ctrl_arvalid),
-  .s_axil_ctrl_arready    (s_axil_ctrl_arready),
-  .s_axil_ctrl_rdata      (s_axil_ctrl_rdata),
-  .s_axil_ctrl_rvalid     (s_axil_ctrl_rvalid),
-  .s_axil_ctrl_rready     (s_axil_ctrl_rready),
-  .s_axil_ctrl_rresp      (s_axil_ctrl_rresp),
+  .s_axil_ctrl_awaddr         (s_axil_ctrl_awaddr[AXIL_CTRL_ADDR_WIDTH-1:0]),
+  .s_axil_ctrl_awvalid        (s_axil_ctrl_awvalid),
+  .s_axil_ctrl_awready        (s_axil_ctrl_awready),
+  .s_axil_ctrl_wdata          (s_axil_ctrl_wdata),
+  .s_axil_ctrl_wvalid         (s_axil_ctrl_wvalid),
+  .s_axil_ctrl_wready         (s_axil_ctrl_wready),
+  .s_axil_ctrl_bresp          (s_axil_ctrl_bresp),
+  .s_axil_ctrl_bvalid         (s_axil_ctrl_bvalid),
+  .s_axil_ctrl_bready         (s_axil_ctrl_bready),
+  .s_axil_ctrl_araddr         (s_axil_ctrl_araddr[AXIL_CTRL_ADDR_WIDTH-1:0]),
+  .s_axil_ctrl_arvalid        (s_axil_ctrl_arvalid),
+  .s_axil_ctrl_arready        (s_axil_ctrl_arready),
+  .s_axil_ctrl_rdata          (s_axil_ctrl_rdata),
+  .s_axil_ctrl_rvalid         (s_axil_ctrl_rvalid),
+  .s_axil_ctrl_rready         (s_axil_ctrl_rready),
+  .s_axil_ctrl_rresp          (s_axil_ctrl_rresp),
 
-  .pkt_filter_err         (pkt_filter_err),
+  .pkt_filter_err             (pkt_filter_err),
 
-  .axis_aclk (axis_aclk),
-  .axis_rstn (axis_rstn),
-  .axil_aclk (axil_aclk),
-  .axil_rstn (axil_rstn)
+  .axis_aclk                  (axis_aclk),
+  .axis_rstn                  (axis_rstn),
+  .axil_aclk                  (axil_aclk),
+  .axil_rstn                  (axil_rstn)
 );
 
 // TODO: Message status monitor
@@ -520,65 +520,65 @@ compute_logic_wrapper #(
   .AXIS_DATA_WIDTH(AXIS_DATA_WIDTH),
   .AXIS_KEEP_WIDTH(AXIS_KEEP_WIDTH)
 ) compute_logic_inst (
-  .s_axil_awvalid(s_axil_cl_reg_awvalid),
-  .s_axil_awaddr (s_axil_cl_reg_awaddr),
-  .s_axil_awready(s_axil_cl_reg_awready),
-  .s_axil_wvalid (s_axil_cl_reg_wvalid),
-  .s_axil_wdata  (s_axil_cl_reg_wdata),
-  .s_axil_wready (s_axil_cl_reg_wready),
-  .s_axil_bvalid (s_axil_cl_reg_bvalid),
-  .s_axil_bresp  (s_axil_cl_reg_bresp),
-  .s_axil_bready (s_axil_cl_reg_bready),
-  .s_axil_arvalid(s_axil_cl_reg_arvalid),
-  .s_axil_araddr (s_axil_cl_reg_araddr),
-  .s_axil_arready(s_axil_cl_reg_arready),
-  .s_axil_rvalid (s_axil_cl_reg_rvalid),
-  .s_axil_rdata  (s_axil_cl_reg_rdata),
-  .s_axil_rresp  (s_axil_cl_reg_rresp),
-  .s_axil_rready (s_axil_cl_reg_rready),
+  .s_axil_awvalid (s_axil_cl_reg_awvalid),
+  .s_axil_awaddr  (s_axil_cl_reg_awaddr),
+  .s_axil_awready (s_axil_cl_reg_awready),
+  .s_axil_wvalid  (s_axil_cl_reg_wvalid),
+  .s_axil_wdata   (s_axil_cl_reg_wdata),
+  .s_axil_wready  (s_axil_cl_reg_wready),
+  .s_axil_bvalid  (s_axil_cl_reg_bvalid),
+  .s_axil_bresp   (s_axil_cl_reg_bresp),
+  .s_axil_bready  (s_axil_cl_reg_bready),
+  .s_axil_arvalid (s_axil_cl_reg_arvalid),
+  .s_axil_araddr  (s_axil_cl_reg_araddr),
+  .s_axil_arready (s_axil_cl_reg_arready),
+  .s_axil_rvalid  (s_axil_cl_reg_rvalid),
+  .s_axil_rdata   (s_axil_cl_reg_rdata),
+  .s_axil_rresp   (s_axil_cl_reg_rresp),
+  .s_axil_rready  (s_axil_cl_reg_rready),
 
-  .m_axi_awid    (m_axi_compute_logic_awid),
-  .m_axi_awaddr  (m_axi_compute_logic_awaddr),
-  .m_axi_awqos   (m_axi_compute_logic_awqos),
-  .m_axi_awlen   (m_axi_compute_logic_awlen),
-  .m_axi_awsize  (m_axi_compute_logic_awsize),
-  .m_axi_awburst (m_axi_compute_logic_awburst),
-  .m_axi_awcache (m_axi_compute_logic_awcache),
-  .m_axi_awprot  (m_axi_compute_logic_awprot),
-  .m_axi_awvalid (m_axi_compute_logic_awvalid),
-  .m_axi_awready (m_axi_compute_logic_awready),
-  .m_axi_wdata   (m_axi_compute_logic_wdata),
-  .m_axi_wstrb   (m_axi_compute_logic_wstrb),
-  .m_axi_wlast   (m_axi_compute_logic_wlast),
-  .m_axi_wvalid  (m_axi_compute_logic_wvalid),
-  .m_axi_wready  (m_axi_compute_logic_wready),
-  .m_axi_awlock  (m_axi_compute_logic_awlock),
-  .m_axi_bid     (m_axi_compute_logic_bid),
-  .m_axi_bresp   (m_axi_compute_logic_bresp),
-  .m_axi_bvalid  (m_axi_compute_logic_bvalid),
-  .m_axi_bready  (m_axi_compute_logic_bready),
-  .m_axi_arid    (m_axi_compute_logic_arid),
-  .m_axi_araddr  (m_axi_compute_logic_araddr),
-  .m_axi_arlen   (m_axi_compute_logic_arlen),
-  .m_axi_arsize  (m_axi_compute_logic_arsize),
-  .m_axi_arburst (m_axi_compute_logic_arburst),
-  .m_axi_arcache (m_axi_compute_logic_arcache),
-  .m_axi_arprot  (m_axi_compute_logic_arprot),
-  .m_axi_arvalid (m_axi_compute_logic_arvalid),
-  .m_axi_arready (m_axi_compute_logic_arready),
-  .m_axi_rid     (m_axi_compute_logic_rid),
-  .m_axi_rdata   (m_axi_compute_logic_rdata),
-  .m_axi_rresp   (m_axi_compute_logic_rresp),
-  .m_axi_rlast   (m_axi_compute_logic_rlast),
-  .m_axi_rvalid  (m_axi_compute_logic_rvalid),
-  .m_axi_rready  (m_axi_compute_logic_rready),
-  .m_axi_arlock  (m_axi_compute_logic_arlock),
-  .m_axi_arqos   (m_axi_compute_logic_arqos),
+  .m_axi_awid     (m_axi_compute_logic_awid),
+  .m_axi_awaddr   (m_axi_compute_logic_awaddr),
+  .m_axi_awqos    (m_axi_compute_logic_awqos),
+  .m_axi_awlen    (m_axi_compute_logic_awlen),
+  .m_axi_awsize   (m_axi_compute_logic_awsize),
+  .m_axi_awburst  (m_axi_compute_logic_awburst),
+  .m_axi_awcache  (m_axi_compute_logic_awcache),
+  .m_axi_awprot   (m_axi_compute_logic_awprot),
+  .m_axi_awvalid  (m_axi_compute_logic_awvalid),
+  .m_axi_awready  (m_axi_compute_logic_awready),
+  .m_axi_wdata    (m_axi_compute_logic_wdata),
+  .m_axi_wstrb    (m_axi_compute_logic_wstrb),
+  .m_axi_wlast    (m_axi_compute_logic_wlast),
+  .m_axi_wvalid   (m_axi_compute_logic_wvalid),
+  .m_axi_wready   (m_axi_compute_logic_wready),
+  .m_axi_awlock   (m_axi_compute_logic_awlock),
+  .m_axi_bid      (m_axi_compute_logic_bid),
+  .m_axi_bresp    (m_axi_compute_logic_bresp),
+  .m_axi_bvalid   (m_axi_compute_logic_bvalid),
+  .m_axi_bready   (m_axi_compute_logic_bready),
+  .m_axi_arid     (m_axi_compute_logic_arid),
+  .m_axi_araddr   (m_axi_compute_logic_araddr),
+  .m_axi_arlen    (m_axi_compute_logic_arlen),
+  .m_axi_arsize   (m_axi_compute_logic_arsize),
+  .m_axi_arburst  (m_axi_compute_logic_arburst),
+  .m_axi_arcache  (m_axi_compute_logic_arcache),
+  .m_axi_arprot   (m_axi_compute_logic_arprot),
+  .m_axi_arvalid  (m_axi_compute_logic_arvalid),
+  .m_axi_arready  (m_axi_compute_logic_arready),
+  .m_axi_rid      (m_axi_compute_logic_rid),
+  .m_axi_rdata    (m_axi_compute_logic_rdata),
+  .m_axi_rresp    (m_axi_compute_logic_rresp),
+  .m_axi_rlast    (m_axi_compute_logic_rlast),
+  .m_axi_rvalid   (m_axi_compute_logic_rvalid),
+  .m_axi_rready   (m_axi_compute_logic_rready),
+  .m_axi_arlock   (m_axi_compute_logic_arlock),
+  .m_axi_arqos    (m_axi_compute_logic_arqos),
 
-  .axil_aclk (axil_aclk),
-  .axil_rstn (axil_rstn),
-  .axis_aclk (axis_aclk),
-  .axis_rstn (axis_rstn)
+  .axil_aclk      (axil_aclk),
+  .axil_rstn      (axil_rstn),
+  .axis_aclk      (axis_aclk),
+  .axis_rstn      (axis_rstn)
 );
 
 assign m_axis_user2rdma_roce_from_cmac_rx_tvalid = pc_roce_out_tvalid;
