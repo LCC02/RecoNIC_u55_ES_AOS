@@ -4,5 +4,5 @@
 	branch = au55_support
 [submodule "drivers/onic-driver"]
 	path = drivers/onic-driver
-	url = https://github.com/SteveOrDan/onic-driver.git
+	url = https://github.com/SteveOrDan/onic-driver_u55.git
 	branch = u55_support
