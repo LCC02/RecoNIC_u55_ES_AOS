@@ -26,6 +26,10 @@ GEN_HLS    ?= 0
 
 BOARD      ?= au55c
 
+NUM_PHYS_FUNC ?= 2
+
+NUM_CMAC_PORT ?= 2
+
 PYTHON_EXE ?= python3
 
 # Check Vivado version
@@ -60,9 +64,9 @@ SMARTNIC_SCRIPT_DIR := $(ROOT_DIR)/base_nics/open-nic-shell/script
 
 build_nic: build_reconic
 ifeq ($(IMPL), 1)
-	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 1 -overwrite $(OVERWRITE) -board $(BOARD)
+	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 1 -overwrite $(OVERWRITE) -board $(BOARD) -num_phys_func $(NUM_PHYS_FUNC) -num_cmac_port $(NUM_CMAC_PORT)
 else
-	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 0 -overwrite $(OVERWRITE) -board $(BOARD)
+	cd $(SMARTNIC_SCRIPT_DIR); vivado -mode batch -source build.tcl -tclargs -max_pkt_len 9600 -impl 0 -overwrite $(OVERWRITE) -board $(BOARD) -num_phys_func $(NUM_PHYS_FUNC) -num_cmac_port $(NUM_CMAC_PORT)
 endif
 
 build_reconic: clean_build hls_build
