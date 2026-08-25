@@ -14,22 +14,26 @@ module box_250mhz #(
   parameter int NUM_PHYS_FUNC = 1,
   parameter int NUM_CMAC_PORT = 1
 ) (
-  input      [NUM_PHYS_FUNC-1:0] s_axil_awvalid,
-  input   [32*NUM_PHYS_FUNC-1:0] s_axil_awaddr,
-  output     [NUM_PHYS_FUNC-1:0] s_axil_awready,
-  input      [NUM_PHYS_FUNC-1:0] s_axil_wvalid,
-  input   [32*NUM_PHYS_FUNC-1:0] s_axil_wdata,
-  output     [NUM_PHYS_FUNC-1:0] s_axil_wready,
-  output     [NUM_PHYS_FUNC-1:0] s_axil_bvalid,
-  output   [2*NUM_PHYS_FUNC-1:0] s_axil_bresp,
-  input      [NUM_PHYS_FUNC-1:0] s_axil_bready,
-  input      [NUM_PHYS_FUNC-1:0] s_axil_arvalid,
-  input   [32*NUM_PHYS_FUNC-1:0] s_axil_araddr,
-  output     [NUM_PHYS_FUNC-1:0] s_axil_arready,
-  output     [NUM_PHYS_FUNC-1:0] s_axil_rvalid,
-  output  [32*NUM_PHYS_FUNC-1:0] s_axil_rdata,
-  output   [2*NUM_PHYS_FUNC-1:0] s_axil_rresp,
-  input      [NUM_PHYS_FUNC-1:0] s_axil_rready,
+  // Single BAR2-mapped AXI4-Lite bus for this whole box, regardless of
+  // NUM_PHYS_FUNC - the PCIe/QDMA side only ever forwards one shared,
+  // address-partitioned window here (see box0_axil_crossbar below, which
+  // demuxes it per RECONIC_ID instance).
+  input                          s_axil_awvalid,
+  input                   [31:0] s_axil_awaddr,
+  output                         s_axil_awready,
+  input                          s_axil_wvalid,
+  input                   [31:0] s_axil_wdata,
+  output                         s_axil_wready,
+  output                         s_axil_bvalid,
+  output                   [1:0] s_axil_bresp,
+  input                          s_axil_bready,
+  input                          s_axil_arvalid,
+  input                   [31:0] s_axil_araddr,
+  output                         s_axil_arready,
+  output                         s_axil_rvalid,
+  output                  [31:0] s_axil_rdata,
+  output                   [1:0] s_axil_rresp,
+  input                          s_axil_rready,
 
   input      [NUM_PHYS_FUNC-1:0] s_axis_qdma_h2c_tvalid,
   input  [512*NUM_PHYS_FUNC-1:0] s_axis_qdma_h2c_tdata,
@@ -197,26 +201,116 @@ generic_reset #(
 assign mod_rst_done[15:C_NUM_USER_BLOCK] = {(16-C_NUM_USER_BLOCK){1'b1}};
 assign mod_rst_done[0]                   = box_rst_done;
 
+// Per-RECONIC_ID AXI4-Lite bus, demuxed from the single s_axil_* bus above.
+// reconic_address_map.sv (inside each rdma_onic_plugin instance) already
+// self-filters by its own RECONIC_ID-based address offset (0x0000 for
+// RECONIC_ID 0, 0x4000 for RECONIC_ID 1), so box0_axil_crossbar below is
+// address-range routing only - it does not rebase/subtract addresses,
+// matching reconic_axil_crossbar's own convention one level down.
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_awvalid;
+logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_awaddr;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_awready;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_wvalid;
+logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_wdata;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_wready;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_bvalid;
+logic   [2*NUM_PHYS_FUNC-1:0] box0_axil_bresp;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_bready;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_arvalid;
+logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_araddr;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_arready;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_rvalid;
+logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_rdata;
+logic   [2*NUM_PHYS_FUNC-1:0] box0_axil_rresp;
+logic     [NUM_PHYS_FUNC-1:0] box0_axil_rready;
+
+generate
+if (NUM_PHYS_FUNC == 1) begin: box0_axil_passthrough
+  // Single PF: no demux needed, RECONIC_ID 0 owns the whole bus directly.
+  assign box0_axil_awvalid = s_axil_awvalid;
+  assign box0_axil_awaddr  = s_axil_awaddr;
+  assign s_axil_awready    = box0_axil_awready;
+  assign box0_axil_wvalid  = s_axil_wvalid;
+  assign box0_axil_wdata   = s_axil_wdata;
+  assign s_axil_wready     = box0_axil_wready;
+  assign s_axil_bvalid     = box0_axil_bvalid;
+  assign s_axil_bresp      = box0_axil_bresp;
+  assign box0_axil_bready  = s_axil_bready;
+  assign box0_axil_arvalid = s_axil_arvalid;
+  assign box0_axil_araddr  = s_axil_araddr;
+  assign s_axil_arready    = box0_axil_arready;
+  assign s_axil_rvalid     = box0_axil_rvalid;
+  assign s_axil_rdata      = box0_axil_rdata;
+  assign s_axil_rresp      = box0_axil_rresp;
+  assign box0_axil_rready  = s_axil_rready;
+end else begin: box0_axil_xbar
+  box0_axil_crossbar box0_axil_crossbar_inst (
+    .s_axi_awaddr  (s_axil_awaddr),
+    .s_axi_awprot  (0),
+    .s_axi_awvalid (s_axil_awvalid),
+    .s_axi_awready (s_axil_awready),
+    .s_axi_wdata   (s_axil_wdata),
+    .s_axi_wstrb   (4'hF),
+    .s_axi_wvalid  (s_axil_wvalid),
+    .s_axi_wready  (s_axil_wready),
+    .s_axi_bresp   (s_axil_bresp),
+    .s_axi_bvalid  (s_axil_bvalid),
+    .s_axi_bready  (s_axil_bready),
+    .s_axi_araddr  (s_axil_araddr),
+    .s_axi_arprot  (0),
+    .s_axi_arvalid (s_axil_arvalid),
+    .s_axi_arready (s_axil_arready),
+    .s_axi_rdata   (s_axil_rdata),
+    .s_axi_rresp   (s_axil_rresp),
+    .s_axi_rvalid  (s_axil_rvalid),
+    .s_axi_rready  (s_axil_rready),
+
+    .m_axi_awaddr  (box0_axil_awaddr),
+    .m_axi_awprot  (),
+    .m_axi_awvalid (box0_axil_awvalid),
+    .m_axi_awready (box0_axil_awready),
+    .m_axi_wdata   (box0_axil_wdata),
+    .m_axi_wstrb   (),
+    .m_axi_wvalid  (box0_axil_wvalid),
+    .m_axi_wready  (box0_axil_wready),
+    .m_axi_bresp   (box0_axil_bresp),
+    .m_axi_bvalid  (box0_axil_bvalid),
+    .m_axi_bready  (box0_axil_bready),
+    .m_axi_araddr  (box0_axil_araddr),
+    .m_axi_arprot  (),
+    .m_axi_arvalid (box0_axil_arvalid),
+    .m_axi_arready (box0_axil_arready),
+    .m_axi_rdata   (box0_axil_rdata),
+    .m_axi_rresp   (box0_axil_rresp),
+    .m_axi_rvalid  (box0_axil_rvalid),
+    .m_axi_rready  (box0_axil_rready),
+
+    .aclk          (axil_aclk),
+    .aresetn       (axil_rstn)
+  );
+end
+endgenerate
+
 generate for (genvar i = 0; i < NUM_PHYS_FUNC; i++) begin: reconic
   rdma_onic_plugin #(
     .RECONIC_ID (i)
   ) rdma_onic_plugin_inst (
-    .s_axil_awvalid                            (s_axil_awvalid[i]),
-    .s_axil_awaddr                             (s_axil_awaddr[`getvec(32, i)]),
-    .s_axil_awready                            (s_axil_awready[i]),
-    .s_axil_wvalid                             (s_axil_wvalid[i]),
-    .s_axil_wdata                              (s_axil_wdata[`getvec(32, i)]),
-    .s_axil_wready                             (s_axil_wready[i]),
-    .s_axil_bvalid                             (s_axil_bvalid[i]),
-    .s_axil_bresp                              (s_axil_bresp[`getvec(2, i)]),
-    .s_axil_bready                             (s_axil_bready[i]),
-    .s_axil_arvalid                            (s_axil_arvalid[i]),
-    .s_axil_araddr                             (s_axil_araddr[`getvec(32, i)]),
-    .s_axil_arready                            (s_axil_arready[i]),
-    .s_axil_rvalid                             (s_axil_rvalid[i]),
-    .s_axil_rdata                              (s_axil_rdata[`getvec(32, i)]),
-    .s_axil_rresp                              (s_axil_rresp[`getvec(2, i)]),
-    .s_axil_rready                             (s_axil_rready[i]),
+    .s_axil_awvalid                            (box0_axil_awvalid[i]),
+    .s_axil_awaddr                             (box0_axil_awaddr[`getvec(32, i)]),
+    .s_axil_awready                            (box0_axil_awready[i]),
+    .s_axil_wvalid                             (box0_axil_wvalid[i]),
+    .s_axil_wdata                              (box0_axil_wdata[`getvec(32, i)]),
+    .s_axil_wready                             (box0_axil_wready[i]),
+    .s_axil_bvalid                             (box0_axil_bvalid[i]),
+    .s_axil_bresp                              (box0_axil_bresp[`getvec(2, i)]),
+    .s_axil_bready                             (box0_axil_bready[i]),
+    .s_axil_arvalid                            (box0_axil_arvalid[i]),
+    .s_axil_araddr                             (box0_axil_araddr[`getvec(32, i)]),
+    .s_axil_arready                            (box0_axil_arready[i]),
+    .s_axil_rvalid                             (box0_axil_rvalid[i]),
+    .s_axil_rdata                              (box0_axil_rdata[`getvec(32, i)]),
+    .s_axil_rresp                              (box0_axil_rresp[`getvec(2, i)]),
+    .s_axil_rready                             (box0_axil_rready[i]),
 
     // Receive packets from CMAC RX path
     .s_axis_cmac_rx_tvalid                     (s_axis_adap_rx_250mhz_tvalid[i]),

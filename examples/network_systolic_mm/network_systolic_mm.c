@@ -100,6 +100,7 @@ int main(int argc, char *argv[])
   device = DEVICE_NAME_DEFAULT;
   char *pcie_resource = NULL;
   char *qp_location = QP_LOCATION_DEFAULT;
+  uint32_t engine_id = 0;
 
   uint32_t ctl_cmd_size = 6;
   uint16_t a_row = DATA_SIZE;
@@ -164,7 +165,7 @@ int main(int argc, char *argv[])
 
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-  while ((cmd_opt = getopt_long(argc, argv, "d:p:r:i:u:t:q:z:l:scgh", \
+  while ((cmd_opt = getopt_long(argc, argv, "d:p:r:i:u:t:q:z:l:e:scgh", \
           long_opts, NULL)) != -1) {
     switch (cmd_opt) {
     case 'd':
@@ -234,6 +235,11 @@ int main(int argc, char *argv[])
         exit(0);
       }
       break;
+    case 'e':
+      /* which RDMA (ERNIC) engine instance to target: 0 or 1 */
+      engine_id = (uint32_t) atoi(optarg);
+      fprintf(stderr, "Info: RDMA engine - %u\n", engine_id);
+      break;
     case 's':
       server = 1;
       client = 0;
@@ -268,6 +274,7 @@ int main(int argc, char *argv[])
    */
   fprintf(stderr, "Info: CREATE RDMA DEVICE\n");
   rdma_dev = create_rdma_dev(rn_dev);
+  set_rdma_engine_id(rdma_dev, engine_id);
 
   /*
    * 3. Allocate memory for CQ and RQ's cidb buffers, data buffer,

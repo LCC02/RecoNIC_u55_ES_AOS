@@ -5,5 +5,6 @@
 #==============================================================================
 set ips {
   reconic_axil_crossbar
+  box0_axil_crossbar
   packet_parser
 }
