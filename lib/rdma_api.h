@@ -67,14 +67,7 @@ struct rdma_dev_t {
   uint32_t* axil_ctl; /*!< axil_ctl a pointer to PCIe register control interface. */
   uint32_t num_qp;    /*!< num_qp number of queue pair enabled. */
   struct win_size_t* winSize;    /*!< Window size mask for PCIe BDF address conversion. */
-  uint32_t engine_id; /*!< engine_id which ERNIC instance's GCSR block this device
-                            talks to (0 or 1, both reachable through the same BAR2
-                            mmap via axil_ctl - see RN_RDMA_BASE_ADDRESS vs
-                            RN_RDMA1_BASE_ADDRESS in reconic_reg.h). Defaults to 0;
-                            set with set_rdma_engine_id() before open_rdma_dev() to
-                            target the second engine. Only config_rdma_global_csr()
-                            currently honors this - per-QP register access
-                            (RN_RDMA_QCSR_*) is not yet engine-aware. */
+  uint32_t engine_id; /*!< engine_id which ERNIC instance's GCSR block this device talks to (0 or 1). Defaults to 0. */
 };
 
 /*! \struct rdma_pd_t
@@ -160,10 +153,6 @@ struct rdma_wqe_t {
 struct rdma_dev_t* create_rdma_dev(struct rn_dev_t* rn_dev);
 
 /** @brief Select which ERNIC instance (0 or 1) this RDMA device targets.
- *  Call after create_rdma_dev() and before open_rdma_dev(); defaults to
- *  engine 0 if never called, so existing single-engine callers are
- *  unaffected. See the engine_id field doc on struct rdma_dev_t for the
- *  current scope of what this actually controls.
  *  @param rdma_dev a pointer to the RDMA device created.
  *  @param engine_id 0 or 1.
  *  @return void.

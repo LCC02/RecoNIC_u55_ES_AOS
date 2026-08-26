@@ -14,10 +14,6 @@ module box_250mhz #(
   parameter int NUM_PHYS_FUNC = 1,
   parameter int NUM_CMAC_PORT = 1
 ) (
-  // Single BAR2-mapped AXI4-Lite bus for this whole box, regardless of
-  // NUM_PHYS_FUNC - the PCIe/QDMA side only ever forwards one shared,
-  // address-partitioned window here (see box0_axil_crossbar below, which
-  // demuxes it per RECONIC_ID instance).
   input                          s_axil_awvalid,
   input                   [31:0] s_axil_awaddr,
   output                         s_axil_awready,
@@ -201,12 +197,6 @@ generic_reset #(
 assign mod_rst_done[15:C_NUM_USER_BLOCK] = {(16-C_NUM_USER_BLOCK){1'b1}};
 assign mod_rst_done[0]                   = box_rst_done;
 
-// Per-RECONIC_ID AXI4-Lite bus, demuxed from the single s_axil_* bus above.
-// reconic_address_map.sv (inside each rdma_onic_plugin instance) already
-// self-filters by its own RECONIC_ID-based address offset (0x0000 for
-// RECONIC_ID 0, 0x4000 for RECONIC_ID 1), so box0_axil_crossbar below is
-// address-range routing only - it does not rebase/subtract addresses,
-// matching reconic_axil_crossbar's own convention one level down.
 logic     [NUM_PHYS_FUNC-1:0] box0_axil_awvalid;
 logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_awaddr;
 logic     [NUM_PHYS_FUNC-1:0] box0_axil_awready;
@@ -224,9 +214,7 @@ logic  [32*NUM_PHYS_FUNC-1:0] box0_axil_rdata;
 logic   [2*NUM_PHYS_FUNC-1:0] box0_axil_rresp;
 logic     [NUM_PHYS_FUNC-1:0] box0_axil_rready;
 
-generate
-if (NUM_PHYS_FUNC == 1) begin: box0_axil_passthrough
-  // Single PF: no demux needed, RECONIC_ID 0 owns the whole bus directly.
+generate if (NUM_PHYS_FUNC == 1) begin: box0_axil_passthrough
   assign box0_axil_awvalid = s_axil_awvalid;
   assign box0_axil_awaddr  = s_axil_awaddr;
   assign s_axil_awready    = box0_axil_awready;
@@ -243,7 +231,8 @@ if (NUM_PHYS_FUNC == 1) begin: box0_axil_passthrough
   assign s_axil_rdata      = box0_axil_rdata;
   assign s_axil_rresp      = box0_axil_rresp;
   assign box0_axil_rready  = s_axil_rready;
-end else begin: box0_axil_xbar
+end 
+else begin: box0_axil_xbar
   box0_axil_crossbar box0_axil_crossbar_inst (
     .s_axi_awaddr  (s_axil_awaddr),
     .s_axi_awprot  (0),

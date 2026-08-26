@@ -39,7 +39,7 @@ static struct option const long_opts[] = {
 	{"qp_location"   , required_argument, NULL, 'l'},
 	{"server"        , no_argument      , NULL, 's'},
 	{"client"        , no_argument      , NULL, 'c'},
-  {"debug"         , no_argument      , NULL, 'g'},
+    {"debug"         , no_argument      , NULL, 'g'},
 	{"help"          , no_argument      , NULL, 'h'},
 	{0               , 0                , 0   ,  0 }
 };
