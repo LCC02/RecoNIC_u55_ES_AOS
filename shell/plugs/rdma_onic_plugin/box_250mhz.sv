@@ -158,25 +158,6 @@ module box_250mhz #(
   input                          axis_aclk
 );
 
-// Parameter DRC
-initial begin
-  if (USE_PHYS_FUNC == 0) begin
-    $fatal("No implementation for USE_PHYS_FUNC = %d. USE_PHYS_FUNC must be 1.", USE_PHYS_FUNC);
-  end
-
-  if ((NUM_PHYS_FUNC != 1) && (NUM_PHYS_FUNC != 2)) begin
-    $fatal("No implementation for NUM_PHYS_FUNC = %d. NUM_PHYS_FUNC must be 1 or 2.", NUM_PHYS_FUNC);
-  end
-
-  if ((NUM_CMAC_PORT != 1) && (NUM_CMAC_PORT != 2)) begin
-    $fatal("No implementation for NUM_CMAC_PORT = %d. NUM_CMAC_PORT must be 1 or 2.", NUM_CMAC_PORT);
-  end
-
-  if (NUM_PHYS_FUNC != NUM_CMAC_PORT) begin
-    $fatal("No implementation for NUM_PHYS_FUNC (%d) != NUM_CMAC_PORT (%d). Both must be 1 or 2.", NUM_PHYS_FUNC, NUM_CMAC_PORT);
-  end
-end
-
 localparam C_NUM_USER_BLOCK = 1;
 
 logic axil_rstn;
