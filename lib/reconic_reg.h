@@ -21,6 +21,10 @@
 #define RN_SCR_OFFSET      0x2000
 #define RN_CLR_OFFSET      0x3000
 
+#define RN_RECONIC_0_OFFSET 0x0000
+#define RN_RECONIC_1_OFFSET 0x4000
+#define RN_RECONIC_OFFSET(i) (((i) == 0) ? RN_RECONIC_0_OFFSET : RN_RECONIC_1_OFFSET)
+
 // PCIe bar2 map size: 8MB
 #define RN_SCR_MAP_SIZE  0x00800000
 
@@ -28,21 +32,21 @@
 
 /* Statistics and configuration register (SCR) space - 0x2000 - 0x2FFF */
 // Read-only register
-#define RN_SCR_VERSION                RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x0
-#define RN_SCR_FATAL_ERR              RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x4
-#define RN_SCR_TRMHR_REG              RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x8
-#define RN_SCR_TRMLR_REG              RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0xC
-#define RN_SCR_TRRMHR_REG             RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x10
-#define RN_SCR_TRRMLR_REG             RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x14
-#define RN_SCR_TEMPLATE_REG           RN_PC_BASE_ADDRESS + RN_SCR_OFFSET + 0x200
+#define RN_SCR_VERSION(i)                RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x0
+#define RN_SCR_FATAL_ERR(i)              RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x4
+#define RN_SCR_TRMHR_REG(i)              RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x8
+#define RN_SCR_TRMLR_REG(i)              RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0xC
+#define RN_SCR_TRRMHR_REG(i)             RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x10
+#define RN_SCR_TRRMLR_REG(i)             RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x14
+#define RN_SCR_TEMPLATE_REG(i)           RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_SCR_OFFSET + 0x200
 
 /* Compute Logic register (clr) space - 0x3000 - 0x3FFF */
-#define RN_CLR_CTL_CMD                RN_PC_BASE_ADDRESS + RN_CLR_OFFSET + 0x0
-#define RN_CLR_KER_STS                RN_PC_BASE_ADDRESS + RN_CLR_OFFSET + 0x4
-#define RN_CLR_JOB_SUBMITTED          RN_PC_BASE_ADDRESS + RN_CLR_OFFSET + 0x8
-#define RN_CLR_JOB_COMPLETED_NOT_READ RN_PC_BASE_ADDRESS + RN_CLR_OFFSET + 0xC
+#define RN_CLR_CTL_CMD(i)                RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_CLR_OFFSET + 0x0
+#define RN_CLR_KER_STS(i)                RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_CLR_OFFSET + 0x4
+#define RN_CLR_JOB_SUBMITTED(i)          RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_CLR_OFFSET + 0x8
+#define RN_CLR_JOB_COMPLETED_NOT_READ(i) RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_CLR_OFFSET + 0xC
 // For testing purpose
-#define RN_CLR_TEMPLATE               RN_PC_BASE_ADDRESS + RN_CLR_OFFSET + 0x200
+#define RN_CLR_TEMPLATE(i)               RN_PC_BASE_ADDRESS + RN_RECONIC_OFFSET(i) + RN_CLR_OFFSET + 0x200
 
 /* ERNIC instance #0 register space - 0x200000 - 0x3FFFFF */
 /* ERNIC instance #1 register space - 0x600000 - 0x7FFFFF (NUM_PHYS_FUNC==2 only) */

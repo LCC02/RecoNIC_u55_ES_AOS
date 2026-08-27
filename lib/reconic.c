@@ -74,6 +74,9 @@ struct mac_addr_t get_mac_addr_from_str_ip(int sockfd, char* ip_str) {
   exit(EXIT_FAILURE);
 }
   for(ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
+    if(ifa->ifa_addr == NULL) {
+      continue;
+    }
     family = ifa->ifa_addr->sa_family;
     // Skip interfaces that are not IPv4 addresses
     if(family != AF_INET) {
@@ -94,10 +97,12 @@ struct mac_addr_t get_mac_addr_from_str_ip(int sockfd, char* ip_str) {
     strncpy(ifreq_local.ifr_name, (char* ) ifa->ifa_name, IFNAMSIZ -1);
     ioctl(sockfd, SIOCGIFHWADDR, &ifreq_local);
     // fprintf(stderr, "Getting src_mac address:\n");
-    return convert_mac_addr_to_uint((unsigned char* ) ifreq_local.ifr_hwaddr.sa_data);
-    break;
+    struct mac_addr_t found_mac = convert_mac_addr_to_uint((unsigned char* ) ifreq_local.ifr_hwaddr.sa_data);
+    freeifaddrs(ifaddr);
+    return found_mac;
   }
 }
+  freeifaddrs(ifaddr);
   fprintf(stderr, "Cannot find interface with IP address %s\n", ip_str);
   exit(EXIT_FAILURE);
 }
@@ -117,11 +122,16 @@ unsigned long get_page_frame_number_of_address(void *addr) {
   size_t return_code;
   // Getting the pagemap file for the current process
   FILE *pagemap = fopen("/proc/self/pagemap", "rb");
+  if(pagemap == NULL) {
+    fprintf(stderr, "Error: Failed to open /proc/self/pagemap\n");
+    exit(1);
+  }
 
   // Seek to the page that the buffer is on
   unsigned long offset = (unsigned long)addr / getpagesize() * PAGEMAP_LENGTH;
   if(fseek(pagemap, (unsigned long)offset, SEEK_SET) != 0) {
     fprintf(stderr, "Error: Failed to seek pagemap to proper location\n");
+    fclose(pagemap);
     exit(1);
   }
 
@@ -130,6 +140,7 @@ unsigned long get_page_frame_number_of_address(void *addr) {
   return_code = fread(&page_frame_number, 1, PAGEMAP_LENGTH-1, pagemap);
   if(return_code != (PAGEMAP_LENGTH-1)) {
     fprintf(stderr, "Error: failed to get page frame number\n");
+    fclose(pagemap);
     return -1;
   }
   page_frame_number &= 0x7FFFFFFFFFFFFF;
@@ -322,6 +333,12 @@ struct rn_dev_t* create_rn_dev(char* pcie_resource, int* pcie_resource_fd, uint3
   rn_dev->base_buf->buffer = mmap(NULL, num_hugepages_request * (1 << HUGE_PAGE_SHIFT),
                                   PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS |
                                   MAP_HUGETLB, -1, 0);
+
+  if (rn_dev->base_buf->buffer == MAP_FAILED) {
+    fprintf(stderr, "Error: failed to allocate hugepage memory (requested %u hugepages - check /proc/sys/vm/nr_hugepages)\n", num_hugepages_request);
+    close(scr);
+    exit(EXIT_FAILURE);
+  }
 
   // Lock the buffer in physical memory
   if(mlock(rn_dev->base_buf->buffer, num_hugepages_request * (1 << HUGE_PAGE_SHIFT)) == -1) {

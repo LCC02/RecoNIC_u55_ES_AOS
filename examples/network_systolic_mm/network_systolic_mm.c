@@ -120,12 +120,12 @@ int main(int argc, char *argv[])
   char  val = 0;
 
   struct rdma_buff_t* cidb_buffer;
-  struct rdma_buff_t* tmp_buffer;
+  struct rdma_buff_t* tmp_buffer = NULL;
   struct rdma_buff_t* mr_bufferA = malloc(sizeof(struct rdma_buff_t));
   struct rdma_buff_t* mr_bufferB = malloc(sizeof(struct rdma_buff_t));
-  struct rdma_buff_t* device_bufferA;
-  struct rdma_buff_t* device_bufferB;
-  struct rdma_buff_t* device_bufferC;
+  struct rdma_buff_t* device_bufferA = NULL;
+  struct rdma_buff_t* device_bufferB = NULL;
+  struct rdma_buff_t* device_bufferC = NULL;
   uint64_t cq_cidb_addr;
   uint64_t rq_cidb_addr;
 
@@ -434,11 +434,11 @@ int main(int argc, char *argv[])
     gen_ctl_cmd(&ctl_cmd, (uint32_t) device_bufferA->dma_addr, (uint32_t) device_bufferB->dma_addr, (uint32_t) device_bufferC->dma_addr, ctl_cmd_size, a_row, a_col, b_col, work_id);
 
     // Start FPGA accelerator
-    issue_ctl_cmd((void *)rdma_dev->axil_ctl, RN_CLR_CTL_CMD, &ctl_cmd);
+    issue_ctl_cmd((void *)rdma_dev->axil_ctl, RN_CLR_CTL_CMD(rdma_dev->engine_id), &ctl_cmd);
 
     // Polling the status register and get data back
 
-    compute_done = wait_compute((void *)rdma_dev->axil_ctl, RN_CLR_JOB_COMPLETED_NOT_READ);
+    compute_done = wait_compute((void *)rdma_dev->axil_ctl, RN_CLR_JOB_COMPLETED_NOT_READ(rdma_dev->engine_id));
 
     fprintf(stderr, "Info: Is Computation finished, compute_done = %d\n", compute_done);
 
@@ -465,7 +465,7 @@ int main(int argc, char *argv[])
 
     software_mmult(source_in1, source_in2, source_sw_results);
 
-    hw_work_id = read32_data(rdma_dev->axil_ctl, RN_CLR_KER_STS);
+    hw_work_id = read32_data(rdma_dev->axil_ctl, RN_CLR_KER_STS(rdma_dev->engine_id));
 
     fprintf(stderr, "hw_work_id = 0x%x\n", hw_work_id);
 
@@ -580,6 +580,12 @@ out:
   free(err_buf);
   free(resp_err_pkt_buf);
   free(matrix_data);
+  free(mr_bufferA);
+  free(mr_bufferB);
+  free(device_bufferA);
+  free(device_bufferB);
+  free(device_bufferC);
+  free(tmp_buffer);
   close(fpga_fd);
   close(pcie_resource_fd);
   destroy_rn_dev(rn_dev);

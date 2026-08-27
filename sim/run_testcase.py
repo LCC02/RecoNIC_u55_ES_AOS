@@ -206,7 +206,8 @@ class testcaseClass:
 
         non_roce_packets_fname = pjoin(tc_dir, non_roce_packet_filename)
 
-        if ((top_module == 'rn_tb_top') or (top_module == 'rn_tb_2rdma_top')):
+        if ((top_module == 'rn_tb_top') or (top_module == 'rn_tb_2rdma_top')
+            or (top_module == 'double_rn_tb_top')):
           # For write test:
           #   1. To construct rdma payload data, we need to initialize system memory
           #   2. To verify write operations, we need to read device memory

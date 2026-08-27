@@ -133,6 +133,7 @@ vlog -64 -sv +define+DEBUG -L xpm -work reco \
 "../src/axil_3to1_crossbar_wrapper.sv" \
 "../src/init_mem.sv" \
 "../src/rdma_rn_wrapper.sv" \
+"../src/double_rdma_rn_wrapper.sv" \
 "../src/rn_tb_pkg.sv" \
 "../src/rn_tb_generator.sv" \
 "../src/rn_tb_driver.sv" \
@@ -140,6 +141,7 @@ vlog -64 -sv +define+DEBUG -L xpm -work reco \
 "../src/rn_tb_top.sv" \
 "../src/cl_tb_top.sv" \
 "../src/rn_tb_2rdma_top.sv" \
+"../src/double_rn_tb_top.sv" \
 "../src/axi_3to1_interconnect_to_dev_mem.sv" \
 "../src/axi_5to2_interconnect_to_sys_mem.sv" \
 

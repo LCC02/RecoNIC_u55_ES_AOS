@@ -168,8 +168,8 @@ control_command_processor #(
 
 // Compute_Logic box
 cl_box cl_box_wrapper (
-  .ap_local_block              (),
-  .ap_local_deadlock           (),
+  //.ap_local_block              (),
+  //.ap_local_deadlock           (),
   .ap_clk                      (axis_aclk),
   .ap_rst                      (~axis_rstn),
   .ap_start                    (cl_box_start),
@@ -196,8 +196,8 @@ cl_box cl_box_wrapper (
 );
 
 mmult kernel_mmult (
-  .ap_local_block   (),
-  .ap_local_deadlock(),
+  //.ap_local_block   (),
+  //.ap_local_deadlock(),
   .ap_clk           (axis_aclk),
   .ap_rst_n         (axis_rstn),
   .ap_start         (ap_start),

@@ -37,6 +37,7 @@ static struct option const long_opts[] = {
 	{"dst_qp"        , required_argument, NULL, 'q'},
 	{"payload_size"  , required_argument, NULL, 'z'},
 	{"qp_location"   , required_argument, NULL, 'l'},
+	{"engine"        , required_argument, NULL, 'e'},
 	{"server"        , no_argument      , NULL, 's'},
 	{"client"        , no_argument      , NULL, 'c'},
     {"debug"         , no_argument      , NULL, 'g'},
@@ -74,6 +75,9 @@ static void usage(const char *name)
 		long_opts[i].val, long_opts[i].name);
 	i++;
 	fprintf(stdout, "  -%c (--%s) QP/mem-registered buffers' location: [host_mem | dev_mem] \n",
+		long_opts[i].val, long_opts[i].name);
+	i++;
+	fprintf(stdout, "  -%c (--%s) RDMA engine instance to use: 0 or 1 (defaults to 0; only meaningful on a shell built with NUM_PHYS_FUNC=2) \n",
 		long_opts[i].val, long_opts[i].name);
 	i++;
 	fprintf(stdout, "  -%c (--%s) Server node \n",

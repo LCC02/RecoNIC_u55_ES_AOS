@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
   char  val = 0;
 
   struct rdma_buff_t* cidb_buffer;
-  struct rdma_buff_t* tmp_buffer;
-  struct rdma_buff_t* device_buffer;
+  struct rdma_buff_t* tmp_buffer = NULL;
+  struct rdma_buff_t* device_buffer = NULL;
 
   uint64_t cq_cidb_addr;
   uint64_t rq_cidb_addr;
@@ -443,6 +443,8 @@ out:
   free(err_buf);
   free(resp_err_pkt_buf);
   free(sw_golden);
+  free(device_buffer);
+  free(tmp_buffer);
   close(fpga_fd);
   close(pcie_resource_fd);
   destroy_rn_dev(rn_dev);

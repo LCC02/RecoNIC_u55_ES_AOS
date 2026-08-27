@@ -293,7 +293,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Lock the page in memory
-	if(mlock(source_in1, matrix_size*4*3) == -1) {
+	if(mlock(source_in1, matrix_size*4) == -1) {
 		fprintf(stderr, "Failed to lock page in memory: %s\n", strerror(errno));
 		free(source_in1);
 		goto out;
@@ -308,7 +308,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Lock the page in memory
-	if(mlock(source_in2, matrix_size*4*3) == -1) {
+	if(mlock(source_in2, matrix_size*4) == -1) {
 		fprintf(stderr, "Failed to lock page in memory: %s\n", strerror(errno));
 		free(source_in2);
 		goto out;
@@ -323,7 +323,7 @@ int main(int argc, char *argv[])
 	}
 
 	// Lock the page in memory
-	if(mlock(source_hw_results, matrix_size*4*3) == -1) {
+	if(mlock(source_hw_results, matrix_size*4) == -1) {
 		fprintf(stderr, "Failed to lock page in memory: %s\n", strerror(errno));
 		free(source_hw_results);
 		goto out;
@@ -463,11 +463,9 @@ int main(int argc, char *argv[])
 		rc = 0;
 	}
 
-	/*
 	free(source_in1);
 	free(source_in2);
 	free(source_hw_results);
-	*/
 
 out:
 	close(reconic_fd);

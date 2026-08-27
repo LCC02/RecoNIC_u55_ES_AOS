@@ -323,7 +323,7 @@ int main(int argc, char **argv) {
         goto out;
       }
     } else {
-      // Link RQ to recv_tmp buffer, as RQ is also in host memory
+      free(recv_tmp);
       recv_tmp = (uint32_t* ) rdma_dev->qps_ptr[qpid]->rq->buffer;
     }
 

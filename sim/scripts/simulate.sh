@@ -66,6 +66,8 @@ run_xsim()
     xelab --incr --relax --debug typical --mt auto -L reco -L ernic_v3_1_1 -L xilinx_vip -L xpm -L cam_v2_2_2 -L vitis_net_p4_v1_0_2 -L -L axi_protocol_checker_v2_0_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot $top_module_opt reco.cl_tb_top reco.glbl -log xsim_elaborate.log
   elif [[ "$3" == "rn_tb_2rdma_top" ]]; then
     xelab --incr --relax --debug typical --mt auto -L reco -L ernic_v3_1_1 -L xilinx_vip -L xpm -L cam_v2_2_2 -L vitis_net_p4_v1_0_2 -L -L axi_protocol_checker_v2_0_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot $top_module_opt reco.rn_tb_2rdma_top reco.glbl -log xsim_elaborate.log
+  elif [[ "$3" == "double_rn_tb_top" ]]; then
+    xelab --incr --relax --debug typical --mt auto -L reco -L ernic_v3_1_1 -L xilinx_vip -L xpm -L cam_v2_2_2 -L vitis_net_p4_v1_0_2 -L -L axi_protocol_checker_v2_0_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot $top_module_opt reco.double_rn_tb_top reco.glbl -log xsim_elaborate.log
   else 
     xelab --incr --relax --debug typical --mt auto -L reco -L ernic_v3_1_1  -L xilinx_vip -L xpm -L cam_v2_2_2 -L vitis_net_p4_v1_0_2 -L -L axi_protocol_checker_v2_0_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot $top_module_opt reco.rn_tb_top reco.glbl -log xsim_elaborate.log
   fi

@@ -360,7 +360,7 @@ struct rdma_buff_t* allocate_hugepages_buffer(uint32_t num_hugepages) {
                              PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS |
                              MAP_HUGETLB, -1, 0);
 
-  if(rdma_buffer->buffer == NULL) {
+  if(rdma_buffer->buffer == MAP_FAILED) {
     fprintf(stderr, "Error: failed to allocate hugepage memory\n");
     exit(EXIT_FAILURE);
   }
@@ -1124,6 +1124,7 @@ int destroy_rdma_qp(struct rdma_qp_t* qp) {
     free(qp->cq);
 
     destroy_rdma_pd_entry(qp->pd_entry);
+    free(qp);
     qp = NULL;
   }
 
@@ -1138,12 +1139,15 @@ int destroy_rdma_dev(struct rdma_dev_t* rdma_dev) {
     free(rdma_dev->glb_csr);
     for(i=0; i<rdma_dev->num_qp; i++) {
       destroy_rdma_qp(rdma_dev->qps_ptr[i]);
+      rdma_dev->qps_ptr[i] = NULL;
     }
+    free(rdma_dev->qps_ptr);
 
     // Disable RNIC hardware
     rnic_enable = 0;
     rnic_config = rnic_enable & 0xffffffff;
     write32_data(rdma_dev->axil_ctl, RN_RDMA_GCSR_XRNICCONF(rdma_dev->engine_id), rnic_config);
+    free(rdma_dev);
     rdma_dev = NULL;
   }
 
@@ -1154,6 +1158,7 @@ int destroy_rn_dev(struct rn_dev_t* rn_dev) {
   if(rn_dev != NULL) {
     free(rn_dev->base_buf);
     destroy_rdma_dev((struct rdma_dev_t* ) rn_dev->rdma_dev);
+    free(rn_dev);
     rn_dev = NULL;
   }
 
